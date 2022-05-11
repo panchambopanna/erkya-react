@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Makeup = () => {
-    return (
-        <div className='Makeup container'>Makeup</div>
-    )
-}
+  return <div className="Makeup container">kjdgkjdhgiudfhdjkgjkd</div>;
+};
 
-export default Makeup
+export default Makeup;
