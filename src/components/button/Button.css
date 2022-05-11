@@ -1,0 +1,24 @@
+.Button__blue {
+    font-size: 1rem;
+    background-color: rgb(0, 179, 255);
+    padding: 8px 12px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.Button__white {
+    font-size: 1rem;
+    background-color: white;
+    padding: 7px 12px;
+    border: 1px solid rgb(191, 189, 189);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.Button__blue:hover,
+.Button__white:hover {
+    box-shadow: 2px 2px 5px rgb(191, 189, 189);
+}

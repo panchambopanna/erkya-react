@@ -1,0 +1,34 @@
+.Header {
+    margin: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header__img {
+    object-fit: contain;
+}
+
+.Header__search {
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.Header__search::placeholder {
+    color: rgb(119, 118, 118);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.Header__search:focus {
+    outline: none;
+}
+
+.Header__buttons {
+    display: flex;
+    gap: 15px;
+}
