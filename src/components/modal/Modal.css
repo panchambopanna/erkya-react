@@ -15,11 +15,18 @@
 
 .Modal__pop {
     position: relative;
+    max-height: 90%;
+    overflow-y: scroll;
     box-sizing: border-box;
     background-color: white;
     border-radius: 10px;
     width: 30%;
     padding: 10px 40px;
+}
+
+/* Hides scroll bar */
+.Modal__pop::-webkit-scrollbar {
+    display: none;
 }
 
 .Modal__pop>h1 {

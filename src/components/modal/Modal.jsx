@@ -7,6 +7,9 @@ const Modal = ({ mType, setModal, setmType }) => {
     const handleSignUp = () => {
         setmType('signUp')
     }
+    const handleLogin = () => {
+        setmType('login')
+    }
     return (
         <div className='Modal'>
             {(mType === 'login') ? <div className="Modal__pop Modal__pop-login">
@@ -44,6 +47,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                     <label htmlFor="password">Confirm password</label>
                     <input type="password" id='password' placeholder='Confirm password' />
                     <Button text='Sign up' color="blue" />
+                    <div style={{ borderTop: '1.5px solid rgba(171, 171, 171, 0.5)', padding: '1rem 0rem' }}>
+                        Already have an account? <span style={{ color: 'rgb(0, 179, 255)', cursor: 'pointer' }} onClick={() => { handleLogin() }}>Login</span>
+                    </div>
                 </form>
             </div>}
         </div>
