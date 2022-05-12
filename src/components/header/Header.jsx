@@ -26,7 +26,11 @@ const Header = () => {
         </div>
         <div className="header__buttons">
           <Button text="Log In" fn={() => handleClick("login")} />
-          <Button text="Sign Up" fn={() => handleClick("signUp")} />
+          <Button
+            text="Sign Up"
+            color="blue"
+            fn={() => handleClick("signUp")}
+          />
         </div>
       </div>
 
