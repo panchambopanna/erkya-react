@@ -1,59 +1,139 @@
-import React from 'react';
-import Button from '../button/Button';
-import './Modal.css';
-import google from '../../images/google.png'
+import React from "react";
+import Button from "../button/Button";
+import "./Modal.css";
+import google from "../../images/google.png";
 
 const Modal = ({ mType, setModal, setmType }) => {
-    const handleSignUp = () => {
-        setmType('signUp')
-    }
-    const handleLogin = () => {
-        setmType('login')
-    }
-    return (
-        <div className='Modal'>
-            {(mType === 'login') ? <div className="Modal__pop Modal__pop-login">
-                <h1>Login</h1>
-                <span className='close' onClick={() => setModal(false)}> &times;</span>
-                <form>
-                    <label htmlFor="email">Email-id</label>
-                    <input type="email" id='email' placeholder='Email' />
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id='password' placeholder='Password' />
-                    <div className="fpass">Forgot password?</div>
-                    <Button text='Login' color="blue" />
-                    <div className='otherLogin'>
-                        <div className="gLogin">
-                            <img src={google} alt="Google" />
-                            <span>Login with Google</span>
-                        </div>
-                    </div>
-                    <div>
-                        Not a Eryka User? <span style={{ color: 'rgb(0, 179, 255)', cursor: 'pointer' }} onClick={() => { handleSignUp() }}>Sign Up</span>
-                    </div>
-                </form>
-            </div> : <div className="Modal__pop Modal__pop-signUp">
-                <h1>Sign Up</h1>
-                <span className='close' onClick={() => setModal(false)}> &times;</span>
-                <form>
-                    <label htmlFor="firstName">First Name </label>
-                    <input type="text" id='firstName' placeholder='First Name' />
-                    <label htmlFor="secondName">Second Name</label>
-                    <input type="text" id='secondName' placeholder='Second Name' />
-                    <label htmlFor="email">Email-id</label>
-                    <input type="email" id='email' placeholder='Email' />
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id='password' placeholder='Password' />
-                    <label htmlFor="password">Confirm password</label>
-                    <input type="password" id='password' placeholder='Confirm password' />
-                    <Button text='Sign up' color="blue" />
-                    <div style={{ borderTop: '1.5px solid rgba(171, 171, 171, 0.5)', padding: '1rem 0rem' }}>
-                        Already have an account? <span style={{ color: 'rgb(0, 179, 255)', cursor: 'pointer' }} onClick={() => { handleLogin() }}>Login</span>
-                    </div>
-                </form>
-            </div>}
-        </div>
-    )
-}
+  const handleSignUp = () => {
+    setmType("signUp");
+  };
+  const handleLogin = () => {
+    setmType("login");
+  };
+  return (
+    <div className="modal">
+      {mType === "login" ? (
+        <div className="modal__content modal__login">
+          <h2>LogIn</h2>
+          <span className="close-btn" onClick={() => setModal(false)}>
+            {" "}
+            &times;
+          </span>
+          <form>
+            <div className="input-container">
+              <input
+                className="email-input"
+                type="email"
+                id="logemail"
+                placeholder=""
+              />
+              <label className="email-label" htmlFor="logemail">
+                Email
+              </label>
+            </div>
+            <div className="input-container">
+              <input
+                className="pass-input"
+                type="password"
+                id="logpassword"
+                placeholder=""
+              />
+              <label className="pass-label" htmlFor="logpassword">
+                Password
+              </label>
+              <i class="fa fa-eye-slash ShowHidePw"></i>
+            </div>
 
-export default Modal
+            <div className="forgotpass">Forgot password?</div>
+
+            <Button text="LogIn" color="blue" />
+
+            <div className="glogincontainer">
+              <div className="glogin">
+                <img src={google} alt="Google" />
+                <span>LogIn with Google</span>
+              </div>
+            </div>
+          </form>
+          <div className="signuplink">
+            Not a Eryka User?{" "}
+            <span
+              onClick={() => {
+                handleSignUp();
+              }}
+            >
+              {" "}
+              Sign Up{" "}
+            </span>
+          </div>
+        </div>
+      ) : (
+        <div className="modal__content modal__signUp">
+          <h2>Sign Up</h2>
+          <span className="close-btn" onClick={() => setModal(false)}>
+            {" "}
+            &times;
+          </span>
+          <form>
+            <div className="sinput-container">
+              <input
+                className="fname-input"
+                type="text"
+                id="fullname"
+                placeholder=""
+              />
+              <label className="fname-label" htmlFor="fullname">
+                Full Name
+              </label>
+            </div>
+            <div className="sinput-container">
+              <input
+                className="signemail-input"
+                type="email"
+                id="signemail"
+                placeholder=""
+              />
+              <label className="signemail-label" htmlFor="signemail">
+                Email
+              </label>
+            </div>
+            <div className="sinput-container">
+              <input
+                className="signpass-input"
+                type="password"
+                id="signpassword"
+                placeholder=""
+              />
+              <label className="signpass-label" htmlFor="signpassword">
+                Password
+              </label>
+              <i class="fa fa-eye-slash ShowHidePw"></i>
+            </div>
+
+            <Button text="SignUp" color="blue" />
+
+            <div className="gsigncontainer">
+              <div className="gsignup">
+                <img src={google} alt="Google" />
+                <span>SignUp with Google</span>
+              </div>
+            </div>
+          </form>
+          <div className="loginlink">
+            Already Eryka User?{" "}
+            <span
+              onClick={() => {
+                handleLogin();
+              }}
+            >
+              {" "}
+              Log In{" "}
+            </span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Modal;

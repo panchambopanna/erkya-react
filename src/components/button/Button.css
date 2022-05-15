@@ -1,26 +1,25 @@
-.Button__blue {
+.button__white {
   font-family: "Public Sans", sans-serif;
-  font-size: 1rem;
-  background-color: rgb(0, 179, 255);
-  padding: 8px 12px;
-  border-radius: 7px;
-  border: none;
+  font-size: var(--font-sm);
+  background-color: var(--white);
+  padding: 0 1.5rem;
+  border: 1px solid var(--gray100);
+  border-radius: 1.5rem;
   cursor: pointer;
-  transition: 200ms;
+  transition: 0.3s;
+}
+.button__blue {
+  font-family: "Public Sans", sans-serif;
+  font-size: var(--font-sm);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.Button__white {
-  font-family: "Public Sans", sans-serif;
-  font-size: 1rem;
-  background-color: white;
-  padding: 7px 12px;
-  border: 1px solid rgb(191, 189, 189);
-  border-radius: 7px;
-  cursor: pointer;
-  transition: 200ms;
-}
-
-.Button__blue:hover,
-.Button__white:hover {
-  box-shadow: 2px 2px 5px rgb(191, 189, 189);
+.button__white,
+.button__blue:hover {
+  opacity: 0.8;
 }

@@ -1,98 +1,319 @@
-.Modal {
-    position: absolute;
-    top: 0px;
-    filter: invert(blur(1));
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: 1000ms;
+
+/* Login modal Styles starts */
+/* Background styles */
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+/* modal content styles */
+.modal__content {
+  position: relative;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  width: 20%;
+  padding: 1rem;
 }
 
-.Modal__pop {
-    position: relative;
-    max-height: 90%;
-    overflow-y: scroll;
-    box-sizing: border-box;
-    background-color: white;
-    border-radius: 10px;
-    width: 30%;
-    padding: 10px 40px;
+.modal__content > h2 {
+  text-align: center;
 }
 
-/* Hides scroll bar */
-.Modal__pop::-webkit-scrollbar {
-    display: none;
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
-.Modal__pop>h1 {
-    text-decoration: underline 2px solid rgb(0, 179, 255);
+.modal__content > form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem 1rem 1rem;
 }
 
-.fpass {
-    text-align: right;
-    cursor: pointer;
-    color: rgb(0, 179, 255);
-    text-decoration: underline 1px solid rgb(0, 179, 255);
+.input-container:nth-child(2) {
+  margin-top: 2rem;
 }
 
-.close {
-    position: absolute;
-    top: -5px;
-    right: 10px;
-    font-size: 2.5rem;
-    cursor: pointer;
+/* styles for email fields */
+.input-container .email-input {
+  font-size: var(--font-md);
+  width: 100%;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--gray100);
+  border-radius: var(--radius);
+}
+.input-container .email-input:focus {
+  border-color: var(--primary);
 }
 
-.Modal__pop>form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    justify-content: space-around;
+.input-container .email-label {
+  position: absolute;
+  font-size: var(--font-md);
+  color: var(--gray500);
+  background-color: var(--white);
+  left: 2.8rem;
+  top: 6.1rem;
+  padding: 0 0.2rem;
+  cursor: text;
+  transition: top 0.2s ease-in, font-size 0.2s ease-in;
 }
 
-.otherLogin {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0px;
-    border-top: 1.5px solid rgba(171, 171, 171, 0.5);
-    border-bottom: 1.5px solid rgba(171, 171, 171, 0.5);
+/* Styles for password fields */
+.input-container .pass-input {
+  font-size: var(--font-md);
+  width: 100%;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--gray100);
+  border-radius: var(--radius);
+}
+.input-container .pass-input:focus {
+  border-color: var(--primary);
 }
 
-.gLogin {
-    width: 50%;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    gap: 5px;
-    background-color: #4286f5;
-    padding: 10px 0px;
-    color: white;
-    font-weight: 500;
+.input-container .pass-label {
+  position: absolute;
+  font-size: var(--font-md);
+  color: var(--gray500);
+  background-color: var(--white);
+  left: 2.8rem;
+  top: 11.1rem;
+  padding: 0 0.2rem;
+  cursor: text;
+  transition: top 0.2s ease-in, font-size 0.2s ease-in;
 }
 
-.gLogin>img {
-    padding: 7px;
-    object-fit: contain;
-    height: 110%;
-    background-color: white;
+/* password eye icon */
+.input-container .fa {
+  position: absolute;
+  top: 11.3rem;
+  right: 2.4rem;
+  color: var(--gray500);
+  cursor: pointer;
 }
 
-.Modal__pop>form>input {
-    border-radius: 5px;
-    padding: 10px;
-    border: 1px solid rgb(119, 118, 118);
+/* animation for labels in login email input field  */
+.email-input:focus ~ .email-label,
+.email-input:not(:placeholder-shown).email-input:not(:focus) ~ .email-label {
+  top: 4.8rem;
+  font-size: var(--font-sm);
+}
+/* animation for labels in login password input field  */
+.pass-input:focus ~ .pass-label,
+.pass-input:not(:placeholder-shown).pass-input:not(:focus) ~ .pass-label {
+  top: 9.8rem;
+  font-size: var(--font-sm);
 }
 
-.Modal__pop label {
-    text-align: left;
-    font-weight: 500;
+/* forgot password link */
+.forgotpass {
+  width: 100%;
+  font-size: var(--font-sm);
+  text-align: right;
+  color: var(--gray500);
+  margin-top: 0.4rem;
+  cursor: pointer;
+}
+.forgotpass:hover {
+  color: var(--gray700);
+}
+
+/* container styles for google login */
+.glogincontainer {
+  width: 100%;
+  border-top: 1px solid var(--gray100);
+  border-bottom: 1px solid var(--gray100);
+}
+/* google login button styles */
+.glogincontainer .glogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin: 0.8rem auto;
+  border-radius: var(--radius);
+  background-color: #4286f5;
+  cursor: pointer;
+}
+
+.glogincontainer .glogin > img {
+  height: 30px;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.glogincontainer .glogin > span {
+  color: var(--white);
+  font-weight: 500;
+  padding-left: 2rem;
+}
+
+/* not member signup link styles */
+.signuplink {
+  font-size: var(--font-sm);
+  text-align: center;
+  color: var(--gray500);
+}
+
+.signuplink > span {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* SignUp modal Styles starts from here */
+.sinput-container:not(:first-child) {
+  margin-top: 2rem;
+}
+
+/* styles for full name field */
+.sinput-container .fname-input {
+  font-size: var(--font-md);
+  width: 100%;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--gray100);
+  border-radius: var(--radius);
+}
+.sinput-container .fname-input:focus {
+  border-color: var(--primary);
+}
+.sinput-container .fname-label {
+  position: absolute;
+  font-size: var(--font-md);
+  color: var(--gray500);
+  background-color: var(--white);
+  left: 2.8rem;
+  top: 6.1rem;
+  padding: 0 0.2rem;
+  cursor: text;
+  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+/* styles for email field */
+.sinput-container .signemail-input {
+  font-size: var(--font-md);
+  width: 100%;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--gray100);
+  border-radius: var(--radius);
+}
+.sinput-container .signemail-input:focus {
+  border-color: var(--primary);
+}
+
+.sinput-container .signemail-label {
+  position: absolute;
+  font-size: var(--font-md);
+  color: var(--gray500);
+  background-color: var(--white);
+  left: 2.8rem;
+  top: 11.1rem;
+  padding: 0 0.2rem;
+  cursor: text;
+  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+/* Styles for password fields */
+.sinput-container .signpass-input {
+  font-size: var(--font-md);
+  width: 100%;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--gray100);
+  border-radius: var(--radius);
+}
+.sinput-container .signpass-input:focus {
+  border-color: var(--primary);
+}
+
+.sinput-container .signpass-label {
+  position: absolute;
+  font-size: var(--font-md);
+  color: var(--gray500);
+  background-color: var(--white);
+  left: 2.8rem;
+  top: 16.1rem;
+  padding: 0 0.2rem;
+  cursor: text;
+  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+/* password eye icon */
+.sinput-container .fa {
+  position: absolute;
+  top: 16.3rem;
+  right: 2.4rem;
+  color: var(--gray500);
+  cursor: pointer;
+}
+
+/* animation for labels in signup full name input field  */
+.fname-input:focus ~ .fname-label,
+.fname-input:not(:placeholder-shown).fname-input:not(:focus) ~ .fname-label {
+  top: 4.8rem;
+  font-size: var(--font-sm);
+}
+/* animation for labels in signup email input field  */
+.signemail-input:focus ~ .signemail-label,
+.signemail-input:not(:placeholder-shown).signemail-input:not(:focus)
+  ~ .signemail-label {
+  top: 9.8rem;
+  font-size: var(--font-sm);
+}
+/* animation for labels in signup password input field  */
+.signpass-input:focus ~ .signpass-label,
+.signpass-input:not(:placeholder-shown).signpass-input:not(:focus)
+  ~ .signpass-label {
+  top: 14.8rem;
+  font-size: var(--font-sm);
+}
+
+/* container styles for google login */
+.gsigncontainer {
+  width: 100%;
+  border-top: 1px solid var(--gray100);
+  border-bottom: 1px solid var(--gray100);
+}
+/* google login button styles */
+.gsigncontainer .gsignup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin: 0.8rem auto;
+  border-radius: var(--radius);
+  background-color: #4286f5;
+  cursor: pointer;
+}
+
+.gsigncontainer .gsignup > img {
+  height: 30px;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.gsigncontainer .gsignup > span {
+  color: var(--white);
+  font-weight: 500;
+  padding-left: 2rem;
+}
+
+/* already user login link styles */
+.loginlink {
+  font-size: var(--font-sm);
+  text-align: center;
+  color: var(--gray500);
+}
+
+.loginlink > span {
+  color: var(--primary);
+  cursor: pointer;
 }
