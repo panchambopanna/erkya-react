@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../images/eryka space.png";
+import logo from "../../images/space.png";
 import Button from "../button/Button";
 import Modal from "../modal/Modal";
 import "./Header.css";

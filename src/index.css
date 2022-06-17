@@ -1,6 +1,7 @@
 /* colors */
 :root {
-  --primary: hsl(198, 100%, 50%);
+  --primary: #40a8c4;
+  --secondary: #ffed19;
   --white: hsl(0, 0%, 99%);
   --black: hsl(0, 0%, 10%);
   --success: hsl(120, 100%, 25%);
