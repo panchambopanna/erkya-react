@@ -148,7 +148,7 @@ const Modal = ({ mType, setModal, setmType }) => {
     return (
       <div className="modal">
         <div className="modal__content modal__fpass">
-          <h2>LogIn</h2>
+          <h2>Password Recovery</h2>
           <span className="close-btn" onClick={() => setModal(false)}>
             {" "}
             &times;
@@ -166,20 +166,8 @@ const Modal = ({ mType, setModal, setmType }) => {
               </label>
             </div>
 
-            <div className="sendMail">
-              Enter your email address and a link will be sent to set new
-              password
-            </div>
-
-            <Button text="Verify" color="blue" />
+            <Button text="Reset Password" color="blue" />
             {/* Add logic to send links or some reset logic */}
-
-            <div className="glogincontainer">
-              <div className="glogin">
-                <img src={google} alt="Google" />
-                <span>LogIn with Google</span>
-              </div>
-            </div>
           </form>
           <div className="loginlink">
             Already Eryka User?{" "}
@@ -190,17 +178,6 @@ const Modal = ({ mType, setModal, setmType }) => {
             >
               {" "}
               Log In{" "}
-            </span>
-          </div>
-          <div className="signuplink">
-            Not a Eryka User?{" "}
-            <span
-              onClick={() => {
-                handleSignUp();
-              }}
-            >
-              {" "}
-              Sign Up{" "}
             </span>
           </div>
         </div>
