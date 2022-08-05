@@ -10,9 +10,14 @@ const Modal = ({ mType, setModal, setmType }) => {
   const handleLogin = () => {
     setmType("login");
   };
-  return (
-    <div className="modal">
-      {mType === "login" ? (
+  const handleFpass = () => {
+    setmType("fpass");
+    console.log(mType);
+  };
+
+  if (mType === "login") {
+    return (
+      <div className="modal">
         <div className="modal__content modal__login">
           <h2>LogIn</h2>
           <span className="close-btn" onClick={() => setModal(false)}>
@@ -44,7 +49,9 @@ const Modal = ({ mType, setModal, setmType }) => {
               <i class="fa fa-eye-slash ShowHidePw"></i>
             </div>
 
-            <div className="forgotpass">Forgot password?</div>
+            <div className="forgotpass" onClick={handleFpass}>
+              Forgot password?
+            </div>
 
             <Button text="LogIn" color="blue" />
 
@@ -67,7 +74,11 @@ const Modal = ({ mType, setModal, setmType }) => {
             </span>
           </div>
         </div>
-      ) : (
+      </div>
+    );
+  } else if (mType === "signUp") {
+    return (
+      <div className="modal">
         <div className="modal__content modal__signUp">
           <h2>Sign Up</h2>
           <span className="close-btn" onClick={() => setModal(false)}>
@@ -131,9 +142,48 @@ const Modal = ({ mType, setModal, setmType }) => {
             </span>
           </div>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  } else if (mType === "fpass") {
+    return (
+      <div className="modal">
+        <div className="modal__content modal__fpass">
+          <h2>Password Recovery</h2>
+          <span className="close-btn" onClick={() => setModal(false)}>
+            {" "}
+            &times;
+          </span>
+          <form>
+            <div className="input-container">
+              <input
+                className="email-input"
+                type="email"
+                id="logemail"
+                placeholder=""
+              />
+              <label className="email-label" htmlFor="logemail">
+                Email
+              </label>
+            </div>
+
+            <Button text="Reset Password" color="blue" />
+            {/* Add logic to send links or some reset logic */}
+          </form>
+          <div className="loginlink">
+            Already Eryka User?{" "}
+            <span
+              onClick={() => {
+                handleLogin();
+              }}
+            >
+              {" "}
+              Log In{" "}
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Modal;
