@@ -1,5 +1,4 @@
-import Header from "./components/header/Header";
-import NavBar from "./components/navbar/NavBar";
+import { Header, NavBar, Footer} from "./components";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Fashion from "./pages/Fashion";
@@ -26,6 +25,7 @@ const App = () => (
       <Route exact path="/studio" element={<Studio />} />
       <Route exact path="/video" element={<Video />} />
     </Routes>
+    <Footer/>
   </div>
 );
 
