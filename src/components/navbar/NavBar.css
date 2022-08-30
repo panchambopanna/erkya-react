@@ -1,21 +1,18 @@
 .navBar {
   border-top: 1px solid var(--gray100);
   border-bottom: 1px solid var(--gray100);
-  font-size: var(--font-md);
 }
 
 .navBar__items {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
   display: flex;
   justify-content: space-evenly;
 }
 
 .navBar__item {
   position: relative;
-  color: var(--black);
-  padding: var(--font-sm) 0;
-  text-decoration: none;
-  border: none;
-  transition: color 0.3s ease-in-out;
+  padding: 0.8rem 0;
 }
 
 .navBar__item::before {
@@ -29,7 +26,7 @@
   border-radius: var(--radius);
   background-color: var(--primary);
   opacity: 0;
-  transition: color 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .navBar__item:hover::before,

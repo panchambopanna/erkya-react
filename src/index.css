@@ -1,40 +1,78 @@
 /* colors */
 :root {
-  --primary: #40a8c4;
-  --secondary: #ffed19;
+  --primary: hsl(195, 100%, 50%);
+  --primary-light: hsl(195, 100%, 91%);
+  --primary-dark: hsl(195, 100%, 9%);
   --white: hsl(0, 0%, 99%);
   --black: hsl(0, 0%, 10%);
-  --success: hsl(120, 100%, 25%);
-  --error: hsl(0, 100%, 50%);
   --gray100: hsl(0, 0%, 78%);
   --gray300: hsl(0, 0%, 57%);
   --gray500: hsl(0, 0%, 37%);
   --gray700: hsl(0, 0%, 19%);
+  --success: hsl(120, 100%, 25%);
+  --error: hsl(0, 100%, 50%);
 
-  --font-sm: 0.875rem; /* 14px */
-  --font-md: 1.125rem; /* 18px */
-  --font-bg: 1.375rem; /* 22px */
+  --font-family: "Public Sans", sans-serif;
+
+  --fw-light: 200;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --fs-xsmall: 0.875rem; /* 14px */
+  --fs-small: 1rem; /* 16px */
+  --fs-medium: 1.2rem; /* 20px */
+  --fs-big: 1.5rem; /* 24px */
+  --fs-xbig: 1.75rem; /* 28px */
 
   --radius: 0.5rem;
 }
-html {
-  font-size: 100%;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
 
+/* Box Sizing rules */
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
-body {
+/* Remove default margins */
+* {
   margin: 0;
   padding: 0;
-  font-family: "Public Sans", sans-serif;
+  font: inherit;
 }
 
-body.noscroll {
-  overflow: hidden;
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 200%;
+}
+
+/* Set core body defaults  */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* anchor tags styling */
+a {
+  text-decoration: none;
+  color: var(--primary-dark);
+}
+
+/* General Styling */
+body {
+  font-family: var(--font-family);
+  font-size: var(--fs-small);
 }

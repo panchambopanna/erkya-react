@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../button/Button";
 import "./Modal.css";
 import google from "../../images/google.png";
+import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 
 const Modal = ({ mType, setModal, setmType }) => {
   const handleSignUp = () => {
@@ -15,14 +16,20 @@ const Modal = ({ mType, setModal, setmType }) => {
     console.log(mType);
   };
 
+  const [state, setstate] = useState(false);
+
+  const togglebtn = () => {
+    setstate((preState) => !preState);
+  };
+
   if (mType === "login") {
     return (
       <div className="modal">
         <div className="modal__content modal__login">
-          <h2>LogIn</h2>
+          <h1>LogIn</h1>
           <span className="close-btn" onClick={() => setModal(false)}>
             {" "}
-            &times;
+            <FiX />
           </span>
           <form>
             <div className="input-container">
@@ -31,6 +38,7 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type="email"
                 id="logemail"
                 placeholder=""
+                required
               />
               <label className="email-label" htmlFor="logemail">
                 Email
@@ -39,24 +47,29 @@ const Modal = ({ mType, setModal, setmType }) => {
             <div className="input-container">
               <input
                 className="pass-input"
-                type="password"
+                type={state ? "text" : "password"}
                 id="logpassword"
                 placeholder=""
+                required
               />
               <label className="pass-label" htmlFor="logpassword">
                 Password
               </label>
-              <i class="fa fa-eye-slash ShowHidePw"></i>
+              <span className="fieye" onClick={togglebtn}>
+                {state ? <FiEye /> : <FiEyeOff />}
+              </span>
             </div>
 
             <div className="forgotpass" onClick={handleFpass}>
               Forgot password?
             </div>
 
-            <Button text="LogIn" color="blue" />
+            <div className="ctabtn">
+              <Button text="LogIn" color="blue" />
+            </div>
 
-            <div className="glogincontainer">
-              <div className="glogin">
+            <div className="gcontainer">
+              <div className="gbox">
                 <img src={google} alt="Google" />
                 <span>LogIn with Google</span>
               </div>
@@ -80,56 +93,70 @@ const Modal = ({ mType, setModal, setmType }) => {
     return (
       <div className="modal">
         <div className="modal__content modal__signUp">
-          <h2>Sign Up</h2>
+          <h1>Sign Up</h1>
           <span className="close-btn" onClick={() => setModal(false)}>
             {" "}
-            &times;
+            <FiX />
           </span>
           <form>
-            <div className="sinput-container">
+            <div className="s_input-container">
               <input
                 className="fname-input"
                 type="text"
                 id="fullname"
                 placeholder=""
+                required
               />
               <label className="fname-label" htmlFor="fullname">
                 Full Name
               </label>
             </div>
-            <div className="sinput-container">
+            <div className="s_input-container">
               <input
                 className="signemail-input"
                 type="email"
                 id="signemail"
                 placeholder=""
+                required
               />
               <label className="signemail-label" htmlFor="signemail">
                 Email
               </label>
             </div>
-            <div className="sinput-container">
+            <div className="s_input-container">
               <input
                 className="signpass-input"
-                type="password"
+                type={state ? "text" : "password"}
                 id="signpassword"
                 placeholder=""
+                required
               />
               <label className="signpass-label" htmlFor="signpassword">
                 Password
               </label>
-              <i class="fa fa-eye-slash ShowHidePw"></i>
+              <span className="fieye" onClick={togglebtn}>
+                {state ? <FiEye /> : <FiEyeOff />}
+              </span>
             </div>
 
-            <Button text="SignUp" color="blue" />
+            <div className="ctabtn">
+              <Button text="SignUp" color="blue" />
+            </div>
 
-            <div className="gsigncontainer">
-              <div className="gsignup">
+            <div className="gcontainer">
+              <div className="gbox">
                 <img src={google} alt="Google" />
                 <span>SignUp with Google</span>
               </div>
             </div>
           </form>
+
+          <div className="s_policy">
+            By signing up, you are agreeing to our
+            <a href="/"> Terms of Services</a> and
+            <a href="/"> Privacy Policy</a>
+          </div>
+
           <div className="loginlink">
             Already Eryka User?{" "}
             <span
@@ -148,10 +175,10 @@ const Modal = ({ mType, setModal, setmType }) => {
     return (
       <div className="modal">
         <div className="modal__content modal__fpass">
-          <h2>Password Recovery</h2>
+          <h1>Password Recovery</h1>
           <span className="close-btn" onClick={() => setModal(false)}>
             {" "}
-            &times;
+            <FiX />
           </span>
           <form>
             <div className="input-container">
@@ -160,17 +187,19 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type="email"
                 id="logemail"
                 placeholder=""
+                required
               />
               <label className="email-label" htmlFor="logemail">
                 Email
               </label>
             </div>
-
-            <Button text="Reset Password" color="blue" />
-            {/* Add logic to send links or some reset logic */}
+            <div className="ctabtn">
+              <Button text="Reset Password" color="blue" />
+              {/* Add logic to send links or some reset logic */}
+            </div>
           </form>
           <div className="loginlink">
-            Already Eryka User?{" "}
+            Back to{" "}
             <span
               onClick={() => {
                 handleLogin();

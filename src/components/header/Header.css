@@ -1,5 +1,5 @@
 .header {
-  margin: 0.8rem 1rem;
+  margin: 0.8rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,14 +17,13 @@
   border-radius: var(--radius);
 }
 
-.fas {
-  padding: 0 0.5rem;
-  color: var(--gray100);
+.fis {
+  font-size: var(--fs-medium);
+  margin: 0 0.4rem;
+  color: var(--gray300);
 }
 input {
   flex: 1;
-  font-family: "Public Sans", sans-serif;
-  font-size: var(--font-sm);
   line-height: 2.5rem;
   border-radius: var(--radius);
   border: none;

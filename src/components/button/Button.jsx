@@ -20,11 +20,11 @@ export default Button;
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 Button.defaultProps = {
   text: "Button",
   color: "white",
-  fn: function () {}
+  fn: function () {},
 };
