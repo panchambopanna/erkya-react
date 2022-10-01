@@ -1,10 +1,10 @@
 import React from "react";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const menu = [
-    { name: "Fashion Designers", path: "/fashion" },
+    { name: "FashionDesigners", path: "/fashion" },
     { name: "Models", path: "/models" },
     { name: "Makeup/Hair", path: "/makeup" },
     { name: "Photographers/Retouchers", path: "/photo" },
@@ -14,15 +14,23 @@ const NavBar = () => {
     { name: "Props/Jewellary", path: "/jewels" },
   ];
   return (
-    <div className="navBar">
-      <div className="navBar__items">
-        {menu.map((e, index) => (
-          <Link to={e.path} className="navBar__item" key={index}>
-            {e.name}
-          </Link>
-        ))}
+    <nav>
+      <div className="navBar__links">
+        {menu.map(({ name, path }, index) => {
+          return (
+            <li>
+              <NavLink
+                to={path}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {" "}
+                {name}{" "}
+              </NavLink>
+            </li>
+          );
+        })}
       </div>
-    </div>
+    </nav>
   );
 };
 

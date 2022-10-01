@@ -1,15 +1,18 @@
-import Header from "./components/header/Header";
-import NavBar from "./components/navbar/NavBar";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Fashion from "./pages/Fashion";
-import Jewels from "./pages/Jewels";
-import Makeup from "./pages/Makeup";
-import Models from "./pages/Models";
-import Photo from "./pages/Photo";
-import Rent from "./pages/Rent";
-import Studio from "./pages/Studio";
-import Video from "./pages/Video";
+
+import { Header, NavBar } from "./components";
+
+import {
+  Home,
+  Fashion,
+  Jewels,
+  Makeup,
+  Models,
+  Photo,
+  Rent,
+  Studio,
+  Video,
+} from "./pages";
 
 const App = () => (
   <div className="App">
