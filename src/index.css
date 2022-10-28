@@ -46,10 +46,10 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-html,
+/* html,
 body {
-  height: 200%;
-}
+  height: 100%;
+} */
 
 /* Set core body defaults  */
 body {
@@ -62,7 +62,6 @@ img,
 picture,
 svg {
   max-width: 100%;
-  display: block;
 }
 
 /* anchor tags styling */

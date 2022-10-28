@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const menu = [
-    { name: "FashionDesigners", path: "/fashion" },
+    { name: "Fashion Designers", path: "/fashion" },
     { name: "Models", path: "/models" },
     { name: "Makeup/Hair", path: "/makeup" },
     { name: "Photographers/Retouchers", path: "/photo" },
@@ -15,7 +15,7 @@ const NavBar = () => {
   ];
   return (
     <nav>
-      <div className="navBar__links">
+      <ul className="navBar__links">
         {menu.map(({ name, path }, index) => {
           return (
             <li>
@@ -29,7 +29,7 @@ const NavBar = () => {
             </li>
           );
         })}
-      </div>
+      </ul>
     </nav>
   );
 };
