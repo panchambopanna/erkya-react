@@ -38,3 +38,7 @@ body {
 body.noscroll {
   overflow: hidden;
 }
+
+.App>.container{
+  margin: 0px 10px;
+}

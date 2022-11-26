@@ -2,8 +2,21 @@ import React from "react";
 import Button from "../button/Button";
 import "./Modal.css";
 import google from "../../images/google.png";
+import { useState } from "react";
 
 const Modal = ({ mType, setModal, setmType }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    fullName: "",
+  });
+  const { email, password, fullName } = formData;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const [passError, setPassError] = useState();
+
   const handleSignUp = () => {
     setmType("signUp");
   };
@@ -15,6 +28,10 @@ const Modal = ({ mType, setModal, setmType }) => {
     console.log(mType);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
   if (mType === "login") {
     return (
       <div className="modal">
@@ -24,13 +41,16 @@ const Modal = ({ mType, setModal, setmType }) => {
             {" "}
             &times;
           </span>
-          <form>
+          <form onSubmit={(e) => onSubmit(e)}>
             <div className="input-container">
               <input
                 className="email-input"
                 type="email"
                 id="logemail"
+                name="email"
                 placeholder=""
+                value={email}
+                onChange={(e) => handleChange(e)}
               />
               <label className="email-label" htmlFor="logemail">
                 Email
@@ -41,7 +61,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                 className="pass-input"
                 type="password"
                 id="logpassword"
-                placeholder=""
+                name="password"
+                value={password}
+                onChange={(e) => handleChange(e)}
               />
               <label className="pass-label" htmlFor="logpassword">
                 Password
@@ -53,7 +75,7 @@ const Modal = ({ mType, setModal, setmType }) => {
               Forgot password?
             </div>
 
-            <Button text="LogIn" color="blue" />
+            <Button type="submit" text="LogIn" color="blue" />
 
             <div className="glogincontainer">
               <div className="glogin">
@@ -85,13 +107,16 @@ const Modal = ({ mType, setModal, setmType }) => {
             {" "}
             &times;
           </span>
-          <form>
+          <form onSubmit={(e) => onSubmit(e)}>
             <div className="sinput-container">
               <input
                 className="fname-input"
                 type="text"
                 id="fullname"
                 placeholder=""
+                name="fullName"
+                value={fullName}
+                onChange={(e) => handleChange(e)}
               />
               <label className="fname-label" htmlFor="fullname">
                 Full Name
@@ -103,6 +128,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type="email"
                 id="signemail"
                 placeholder=""
+                name="email"
+                value={email}
+                onChange={(e) => handleChange(e)}
               />
               <label className="signemail-label" htmlFor="signemail">
                 Email
@@ -114,6 +142,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type="password"
                 id="signpassword"
                 placeholder=""
+                name="password"
+                value={password}
+                onChange={(e) => handleChange(e)}
               />
               <label className="signpass-label" htmlFor="signpassword">
                 Password
@@ -121,7 +152,29 @@ const Modal = ({ mType, setModal, setmType }) => {
               <i class="fa fa-eye-slash ShowHidePw"></i>
             </div>
 
-            <Button text="SignUp" color="blue" />
+            <div className="sinput-container">
+              <input
+                className="signpassc-input"
+                type="password"
+                id="signpasswordcheck"
+                onBlur={(e) => {
+                  e.target.value !== password
+                    ? setPassError(true)
+                    : setPassError(false);
+                }}
+              />
+              <label className="signpassc-label" htmlFor="signpasswordcheck">
+                Confirm Password
+              </label>
+              {passError && (
+                <span style={{ color: "red", fontSize: "small" }}>
+                  Password doesn't match
+                </span>
+              )}
+              <i class="fa fa-eye-slash ShowHidePw"></i>
+            </div>
+
+            <Button type="submit" text="SignUp" color="blue" />
 
             <div className="gsigncontainer">
               <div className="gsignup">
