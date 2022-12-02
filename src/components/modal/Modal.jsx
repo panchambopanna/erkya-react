@@ -5,6 +5,17 @@ import google from "../../images/google.png";
 import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 
 const Modal = ({ mType, setModal, setmType }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    fullName: "",
+  });
+
+  const { email, password, fullName } = formData;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSignUp = () => {
     setmType("signUp");
   };
@@ -22,6 +33,11 @@ const Modal = ({ mType, setModal, setmType }) => {
     setstate((preState) => !preState);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
   if (mType === "login") {
     return (
       <div className="modal">
@@ -31,13 +47,16 @@ const Modal = ({ mType, setModal, setmType }) => {
             {" "}
             <FiX />
           </span>
-          <form>
+          <form onSubmit={(e) => onSubmit(e)}>
             <div className="input-container">
               <input
                 className="email-input"
                 type="email"
                 id="logemail"
+                name="email"
                 placeholder=""
+                value={email}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <label className="email-label" htmlFor="logemail">
@@ -50,6 +69,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type={state ? "text" : "password"}
                 id="logpassword"
                 placeholder=""
+                name="password"
+                value={password}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <label className="pass-label" htmlFor="logpassword">
@@ -65,7 +87,7 @@ const Modal = ({ mType, setModal, setmType }) => {
             </div>
 
             <div className="ctabtn">
-              <Button text="LogIn" color="blue" />
+              <Button type="submit" text="LogIn" color="blue" />
             </div>
 
             <div className="gcontainer">
@@ -98,13 +120,16 @@ const Modal = ({ mType, setModal, setmType }) => {
             {" "}
             <FiX />
           </span>
-          <form>
+          <form onSubmit={(e) => onSubmit(e)}>
             <div className="s_input-container">
               <input
                 className="fname-input"
                 type="text"
                 id="fullname"
                 placeholder=""
+                name="fullName"
+                value={fullName}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <label className="fname-label" htmlFor="fullname">
@@ -117,6 +142,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type="email"
                 id="signemail"
                 placeholder=""
+                name="email"
+                value={email}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <label className="signemail-label" htmlFor="signemail">
@@ -129,6 +157,9 @@ const Modal = ({ mType, setModal, setmType }) => {
                 type={state ? "text" : "password"}
                 id="signpassword"
                 placeholder=""
+                name="password"
+                value={password}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <label className="signpass-label" htmlFor="signpassword">
@@ -140,7 +171,7 @@ const Modal = ({ mType, setModal, setmType }) => {
             </div>
 
             <div className="ctabtn">
-              <Button text="SignUp" color="blue" />
+              <Button type="submit" text="SignUp" color="blue" />
             </div>
 
             <div className="gcontainer">
@@ -194,7 +225,7 @@ const Modal = ({ mType, setModal, setmType }) => {
               </label>
             </div>
             <div className="ctabtn">
-              <Button text="Reset Password" color="blue" />
+              <Button type="submit" text="Reset Password" color="blue" />
               {/* Add logic to send links or some reset logic */}
             </div>
           </form>

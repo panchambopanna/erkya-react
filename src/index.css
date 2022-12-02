@@ -1,8 +1,8 @@
 /* colors */
 :root {
-  --primary: hsl(195, 100%, 50%);
-  --primary-light: hsl(195, 100%, 91%);
-  --primary-dark: hsl(195, 100%, 9%);
+  --primary: hsl(187, 90%, 44%);
+  --primary-light: hsl(187, 90%, 91%);
+  --primary-dark: hsl(187, 89%, 21%);
   --white: hsl(0, 0%, 99%);
   --black: hsl(0, 0%, 10%);
   --gray100: hsl(0, 0%, 78%);
@@ -46,11 +46,6 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* html,
-body {
-  height: 100%;
-} */
-
 /* Set core body defaults  */
 body {
   text-rendering: optimizeSpeed;
@@ -77,4 +72,8 @@ a {
 body {
   font-family: var(--font-family);
   font-size: var(--fs-small);
+}
+
+.App > container {
+  margin: 0 10px;
 }

@@ -69,7 +69,10 @@ const Photo = () => {
           <div className="Social-icons">
             <span className="social-link">
               {" "}
-              <FiFacebook /> <a aria-label="facebook" href="#"></a>{" "}
+              <a aria-label="facebook" href="#">
+                {" "}
+                <FiFacebook />{" "}
+              </a>{" "}
             </span>
             <span className="social-link">
               {" "}
