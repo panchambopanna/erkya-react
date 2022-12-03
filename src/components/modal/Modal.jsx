@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
+import { Button } from "../index";
 import "./Modal.css";
 import google from "../../images/google.png";
 import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
@@ -10,7 +10,6 @@ const Modal = ({ mType, setModal, setmType }) => {
     password: "",
     fullName: "",
   });
-
   const { email, password, fullName } = formData;
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +36,6 @@ const Modal = ({ mType, setModal, setmType }) => {
     e.preventDefault();
     console.log(formData);
   };
-
   if (mType === "login") {
     return (
       <div className="modal">

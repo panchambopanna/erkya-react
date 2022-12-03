@@ -11,6 +11,7 @@ import {
   Rent,
   Studio,
   Video,
+  Profile,
 } from "./pages";
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
         <Route exact path="/rent" element={<Rent />} />
         <Route exact path="/studio" element={<Studio />} />
         <Route exact path="/video" element={<Video />} />
+        <Route exact path="/profile" element={<Profile />} />
       </Routes>
     </div>
 

@@ -15,9 +15,9 @@
   position: relative;
   background-color: var(--white);
   border-radius: var(--radius);
-  width: 100%;
-  max-width: 350px;
-  padding: 0.5rem;
+  min-width: 40%;
+  max-width: 70%;
+  padding: 1rem;
 }
 
 /* heading for login,signup and forgot password */

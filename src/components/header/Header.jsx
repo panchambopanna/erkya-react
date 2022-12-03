@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/space.png";
 import { FiSearch } from "react-icons/fi";
-import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
+import { Button, Modal } from "../index";
 import "./Header.css";
 
 const Header = () => {
