@@ -2,14 +2,13 @@
 /* Background styles */
 .modal {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+  background-color: hsla(0, 0%, 0%, 0.7);
+  display: grid;
+  place-items: center;
+  z-index: 9;
 }
 /* modal content styles */
 .modal__content {
@@ -21,16 +20,27 @@
   padding: 1rem;
 }
 
-.modal__content > h2 {
+/* heading for login,signup and forgot password */
+.modal__content > h1 {
   text-align: center;
+  font-size: var(--fs-big);
+  font-weight: var(--fw-bold);
+  margin: 1rem;
 }
 
+/* close button for login, signup and forgot password */
 .close-btn {
   position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 2rem;
+  top: 5px;
+  right: 5px;
+  font-size: var(--fs-big);
+  color: var(--gray700);
   cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: var(--gray100);
+  border-radius: 50%;
 }
 
 .modal__content > form {
@@ -39,13 +49,19 @@
   margin: 0 1rem 1rem 1rem;
 }
 
+/* login input and label container */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
 .input-container:nth-child(2) {
   margin-top: 2rem;
 }
 
-/* styles for email fields */
+/* styles for email input field and label */
 .input-container .email-input {
-  font-size: var(--font-md);
+  font-size: var(--fs-small);
   width: 100%;
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--gray100);
@@ -57,19 +73,20 @@
 
 .input-container .email-label {
   position: absolute;
-  font-size: var(--font-md);
+  font-size: var(--fs-medium);
   color: var(--gray500);
   background-color: var(--white);
-  left: 2.8rem;
-  top: 6.1rem;
+  left: 0.6rem;
+  top: 0.6rem;
   padding: 0 0.2rem;
   cursor: text;
-  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+  z-index: 1;
+  transition: all 0.3s;
 }
 
-/* Styles for password fields */
+/* Styles for password input field and label */
 .input-container .pass-input {
-  font-size: var(--font-md);
+  font-size: var(--fs-small);
   width: 100%;
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--gray100);
@@ -81,21 +98,22 @@
 
 .input-container .pass-label {
   position: absolute;
-  font-size: var(--font-md);
+  font-size: var(--fs-medium);
   color: var(--gray500);
   background-color: var(--white);
-  left: 2.8rem;
-  top: 11.1rem;
+  left: 0.6rem;
+  top: 0.6rem;
   padding: 0 0.2rem;
   cursor: text;
-  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+  transition: all 0.3s;
 }
 
-/* password eye icon */
-.input-container .fa {
+/* password eye icon for both login and signup*/
+.fieye {
   position: absolute;
-  top: 11.3rem;
-  right: 2.4rem;
+  font-size: var(--fs-medium);
+  top: 1rem;
+  right: 1rem;
   color: var(--gray500);
   cursor: pointer;
 }
@@ -103,37 +121,41 @@
 /* animation for labels in login email input field  */
 .email-input:focus ~ .email-label,
 .email-input:not(:placeholder-shown).email-input:not(:focus) ~ .email-label {
-  top: 4.8rem;
-  font-size: var(--font-sm);
+  top: -0.7rem;
+  font-size: var(--fs-small);
+  color: var(--primary);
 }
 /* animation for labels in login password input field  */
 .pass-input:focus ~ .pass-label,
 .pass-input:not(:placeholder-shown).pass-input:not(:focus) ~ .pass-label {
-  top: 9.8rem;
+  top: -0.7rem;
   font-size: var(--font-sm);
+  color: var(--primary);
 }
 
 /* forgot password link */
 .forgotpass {
-  width: 100%;
-  font-size: var(--font-sm);
-  text-align: right;
+  text-align: end;
+  font-size: var(--fs-xsmall);
   color: var(--gray500);
-  margin-top: 0.4rem;
   cursor: pointer;
 }
 .forgotpass:hover {
   color: var(--gray700);
 }
+/* Login and Signup CTA button */
+.ctabtn {
+  margin: 1rem auto;
+}
 
-/* container styles for google login */
-.glogincontainer {
+/* container for google login in login and signup */
+.gcontainer {
   width: 100%;
   border-top: 1px solid var(--gray100);
   border-bottom: 1px solid var(--gray100);
 }
-/* google login button styles */
-.glogincontainer .glogin {
+/* google login for login and signup button */
+.gcontainer .gbox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,176 +166,159 @@
   cursor: pointer;
 }
 
-.glogincontainer .glogin > img {
+.gcontainer .gbox > img {
   height: 30px;
   padding: 0.2rem;
   border-radius: 50%;
   background-color: var(--white);
 }
 
-.glogincontainer .glogin > span {
+.gcontainer .gbox > span {
   color: var(--white);
-  font-weight: 500;
-  padding-left: 2rem;
+  font-weight: var(--fw-medium);
+  padding-left: 1rem;
 }
 
-/* not member signup link styles */
+/* not eryka user signup link styles */
 .signuplink {
-  font-size: var(--font-sm);
+  font-size: var(--fs-xsmall);
   text-align: center;
   color: var(--gray500);
 }
 
 .signuplink > span {
+  font-size: var(--fs-small);
   color: var(--primary);
   cursor: pointer;
 }
 
+/* SIGN UP */
 /* SignUp modal Styles starts from here */
-.sinput-container:not(:first-child) {
+/* signup input and label container */
+.s_input-container {
+  position: relative;
+  width: 100%;
+}
+
+.s_input-container:not(:first-child) {
   margin-top: 2rem;
 }
 
-/* styles for full name field */
-.sinput-container .fname-input {
-  font-size: var(--font-md);
+/* styles for fullname input field and label  */
+.s_input-container .fname-input {
+  font-size: var(--fs-small);
   width: 100%;
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--gray100);
   border-radius: var(--radius);
 }
-.sinput-container .fname-input:focus {
+.s_input-container .fname-input:focus {
   border-color: var(--primary);
 }
-.sinput-container .fname-label {
+.s_input-container .fname-label {
   position: absolute;
-  font-size: var(--font-md);
+  font-size: var(--fs-medium);
   color: var(--gray500);
   background-color: var(--white);
-  left: 2.8rem;
-  top: 6.1rem;
+  left: 0.6rem;
+  top: 0.6rem;
   padding: 0 0.2rem;
   cursor: text;
-  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+  z-index: 1;
+  transition: all 0.3s;
 }
 
-/* styles for email field */
-.sinput-container .signemail-input {
-  font-size: var(--font-md);
+/* styles for email input field and label */
+.s_input-container .signemail-input {
+  font-size: var(--fs-small);
   width: 100%;
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--gray100);
   border-radius: var(--radius);
 }
-.sinput-container .signemail-input:focus {
+.s_input-container .signemail-input:focus {
   border-color: var(--primary);
 }
 
-.sinput-container .signemail-label {
+.s_input-container .signemail-label {
   position: absolute;
-  font-size: var(--font-md);
+  font-size: var(--fs-medium);
   color: var(--gray500);
   background-color: var(--white);
-  left: 2.8rem;
-  top: 11.1rem;
+  left: 0.6rem;
+  top: 0.6rem;
   padding: 0 0.2rem;
   cursor: text;
-  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+  z-index: 1;
+  transition: all 0.3s;
 }
 
-/* Styles for password fields */
-.sinput-container .signpass-input {
-  font-size: var(--font-md);
+/* Styles for password input field and label */
+.s_input-container .signpass-input {
+  font-size: var(--fs-small);
   width: 100%;
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--gray100);
   border-radius: var(--radius);
 }
-.sinput-container .signpass-input:focus {
+.s_input-container .signpass-input:focus {
   border-color: var(--primary);
 }
 
-.sinput-container .signpass-label {
+.s_input-container .signpass-label {
   position: absolute;
-  font-size: var(--font-md);
+  font-size: var(--fs-medium);
   color: var(--gray500);
   background-color: var(--white);
-  left: 2.8rem;
-  top: 16.1rem;
+  left: 0.6rem;
+  top: 0.6rem;
   padding: 0 0.2rem;
   cursor: text;
-  transition: top 0.2s ease-in, font-size 0.2s ease-in;
+  z-index: 1;
+  transition: all 0.3s;
 }
 
-/* password eye icon */
-.sinput-container .fa {
-  position: absolute;
-  top: 16.3rem;
-  right: 2.4rem;
-  color: var(--gray500);
-  cursor: pointer;
-}
-
-/* animation for labels in signup full name input field  */
+/* animation for labels in signup fullname input field  */
 .fname-input:focus ~ .fname-label,
 .fname-input:not(:placeholder-shown).fname-input:not(:focus) ~ .fname-label {
-  top: 4.8rem;
-  font-size: var(--font-sm);
+  top: -0.7rem;
+  font-size: var(--fs-small);
+  color: var(--primary);
 }
 /* animation for labels in signup email input field  */
 .signemail-input:focus ~ .signemail-label,
 .signemail-input:not(:placeholder-shown).signemail-input:not(:focus)
   ~ .signemail-label {
-  top: 9.8rem;
-  font-size: var(--font-sm);
+  top: -0.7rem;
+  font-size: var(--fs-small);
+  color: var(--primary);
 }
 /* animation for labels in signup password input field  */
 .signpass-input:focus ~ .signpass-label,
 .signpass-input:not(:placeholder-shown).signpass-input:not(:focus)
   ~ .signpass-label {
-  top: 14.8rem;
-  font-size: var(--font-sm);
+  top: -0.7rem;
+  font-size: var(--fs-small);
+  color: var(--primary);
 }
 
-/* container styles for google login */
-.gsigncontainer {
-  width: 100%;
-  border-top: 1px solid var(--gray100);
-  border-bottom: 1px solid var(--gray100);
-}
-/* google login button styles */
-.gsigncontainer .gsignup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  margin: 0.8rem auto;
-  border-radius: var(--radius);
-  background-color: #4286f5;
-  cursor: pointer;
+/* Signup policy terms */
+.s_policy {
+  color: var(--gray500);
+  font-size: var(--fs-xsmall);
+  text-align: center;
 }
 
-.gsigncontainer .gsignup > img {
-  height: 30px;
-  padding: 0.2rem;
-  border-radius: 50%;
-  background-color: var(--white);
-}
-
-.gsigncontainer .gsignup > span {
-  color: var(--white);
-  font-weight: 500;
-  padding-left: 2rem;
-}
-
-/* already user login link styles */
+/* already eryka user login link styles */
 .loginlink {
-  font-size: var(--font-sm);
+  font-size: var(--fs-xsmall);
   text-align: center;
   color: var(--gray500);
+  margin-top: var(--fs-xsmall);
 }
 
 .loginlink > span {
+  font-size: var(--fs-small);
   color: var(--primary);
   cursor: pointer;
 }

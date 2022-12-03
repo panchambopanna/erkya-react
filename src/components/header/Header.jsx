@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/space.png";
-import Button from "../button/Button";
-import Modal from "../modal/Modal";
+import { FiSearch } from "react-icons/fi";
+import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 import "./Header.css";
 
 const Header = () => {
@@ -15,13 +16,13 @@ const Header = () => {
 
   return (
     <>
-      <div className="header">
+      <header className="header">
         <Link to="/">
           {" "}
           <img className="header__img" src={logo} alt="Eryka Kreations" />
         </Link>
         <div className="header__searchbar">
-          <i class="fas fa-search"></i>
+          <FiSearch className="fis" />
           <input type="search" placeholder="Search for Creators" />
         </div>
         <div className="header__buttons">
@@ -32,7 +33,7 @@ const Header = () => {
             fn={() => handleClick("signUp")}
           />
         </div>
-      </div>
+      </header>
 
       {modal && <Modal mType={mType} setModal={setModal} setmType={setmType} />}
     </>
