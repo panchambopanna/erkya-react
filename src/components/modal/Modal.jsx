@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
+import { Button } from "../index";
 import "./Modal.css";
 import google from "../../images/google.png";
 import { FiEye, FiEyeOff, FiX } from "react-icons/fi";

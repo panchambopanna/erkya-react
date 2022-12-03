@@ -9,6 +9,7 @@ import {
   FiBookmark,
 } from "react-icons/fi";
 import "./Photo.css";
+import { Link } from "react-router-dom";
 
 const Photo = () => {
   return (
@@ -59,7 +60,9 @@ const Photo = () => {
               src="https://i.pravatar.cc/100"
               alt=""
             />
-            <h2 className="card-name">Karthik Arya</h2>
+            <h2 className="card-name">
+              <Link to="/profile">Karthik Arya</Link>
+            </h2>
             <p className="card-profession">Photographer/Retoucher</p>
             <span className="location">
               <FiMapPin />
@@ -69,22 +72,48 @@ const Photo = () => {
           <div className="Social-icons">
             <span className="social-link">
               {" "}
-              <a aria-label="facebook" href="#">
+              <a
+                aria-label="facebook"
+                target="__blank"
+                href="https://facebook.com"
+                rel="noopener noreferrer"
+              >
                 {" "}
                 <FiFacebook />{" "}
               </a>{" "}
             </span>
             <span className="social-link">
               {" "}
-              <FiInstagram /> <a aria-label="instagram" href="#"></a>{" "}
+              <a
+                aria-label="instagram"
+                href="https://instagram.com"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                <FiInstagram />{" "}
+              </a>{" "}
             </span>
             <span className="social-link">
               {" "}
-              <FiYoutube /> <a aria-label="youtube" href="#"></a>{" "}
+              <a
+                aria-label="youtube"
+                href="https://youtube.com"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                <FiYoutube />
+              </a>{" "}
             </span>
             <span className="social-link">
               {" "}
-              <FiTwitter /> <a aria-label="twitter" href="#"></a>{" "}
+              <a
+                aria-label="twitter"
+                href="https://twitter.com"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                <FiTwitter />
+              </a>{" "}
             </span>
           </div>
         </div>
