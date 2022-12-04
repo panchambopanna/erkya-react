@@ -15,8 +15,8 @@
   position: relative;
   background-color: var(--white);
   border-radius: var(--radius);
-  min-width: 40%;
-  max-width: 70%;
+  width: 100%;
+  max-width: 20%;
   padding: 1rem;
 }
 
