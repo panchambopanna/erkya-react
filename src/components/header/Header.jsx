@@ -4,14 +4,32 @@ import logo from "../../images/space.png";
 import { FiSearch } from "react-icons/fi";
 import { Button, Modal } from "../index";
 import "./Header.css";
+import { logOut } from "../../store/action/auth";
+import { connect } from "react-redux";
+import Login from "../auth/Login";
+import SignUp from "../auth/SignUp";
+import Reset from "../auth/Reset";
 
-const Header = () => {
+const Header = ({ logOut, isAuthenticated }) => {
   const [modal, setModal] = useState(false);
   const [mType, setmType] = useState("");
   const handleClick = (mType) => {
     setModal(true);
     setmType(mType);
   };
+
+  const unAuthorisedLinks = (
+    <div className="header__buttons">
+      <Button text="Log In" fn={() => handleClick("login")} />
+      <Button text="Sign Up" color="blue" fn={() => handleClick("signup")} />
+    </div>
+  );
+
+  const authorisedLinks = (
+    <div className="header__buttons">
+      <Button text="Log Out" fn={() => logOut()} />
+    </div>
+  );
 
   return (
     <>
@@ -25,18 +43,22 @@ const Header = () => {
           <input type="search" placeholder="Search for Creators" />
         </div>
         <div className="header__buttons">
-          <Button text="Log In" fn={() => handleClick("login")} />
-          <Button
-            text="Sign Up"
-            color="blue"
-            fn={() => handleClick("signUp")}
-          />
+          {isAuthenticated ? authorisedLinks : unAuthorisedLinks}
         </div>
       </header>
 
-      {modal && <Modal mType={mType} setModal={setModal} setmType={setmType} />}
+      {modal && mType == "login" && (
+        <Login setModal={setModal} setmType={setmType} />
+      )}
+      {modal && mType == "signup" && (
+        <SignUp setModal={setModal} setmType={setmType} />
+      )}
     </>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { logOut })(Header);
