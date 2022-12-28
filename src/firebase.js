@@ -8,13 +8,13 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD1wCvXJB8X1Wroiq9yPRufXzS70DzDK8w",
-  authDomain: "eryka-kreations.firebaseapp.com",
-  projectId: "eryka-kreations",
-  storageBucket: "eryka-kreations.appspot.com",
-  messagingSenderId: "528473834505",
-  appId: "1:528473834505:web:65e7ef7cec63939d1fe4d8",
-  measurementId: "G-RPPNVSD4YK",
+  apiKey: "AIzaSyDnj24XJSFrGe-pkBbpaIg5N5JDCLAoTjQ",
+  authDomain: "eryka-react.firebaseapp.com",
+  projectId: "eryka-react",
+  storageBucket: "eryka-react.appspot.com",
+  messagingSenderId: "935834851563",
+  appId: "1:935834851563:web:60c37999d7c641e0a6c6ae",
+  measurementId: "G-H7Z55H7FPN",
 };
 
 // Initialize Firebase

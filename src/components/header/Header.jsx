@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/space.png";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiUser } from "react-icons/fi";
 import { Button, Modal } from "../index";
 import "./Header.css";
 import { logOut } from "../../store/action/auth";
@@ -28,6 +28,11 @@ const Header = ({ logOut, isAuthenticated }) => {
   const authorisedLinks = (
     <div className="header__buttons">
       <Button text="Log Out" fn={() => logOut()} />
+      <div className="user">
+        <Link to="/profile">
+          <FiUser />
+        </Link>
+      </div>
     </div>
   );
 

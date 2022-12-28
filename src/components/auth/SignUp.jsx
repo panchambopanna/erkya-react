@@ -6,6 +6,7 @@ import google from "../../images/google.png";
 import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 import { connect } from "react-redux";
 import { signUp } from "../../store/action/auth";
+import { createPortal } from "react-dom";
 
 const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
 
   if (isAuthenticated) setModal(false);
 
-  return (
+  return createPortal(
     <div className="modal">
       <div className="modal__content modal__signUp">
         <h1>Sign Up</h1>
@@ -118,7 +119,8 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
           </span>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal")
   );
 };
 
