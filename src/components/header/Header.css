@@ -35,3 +35,13 @@ input {
   display: flex;
   gap: 1.5rem;
 }
+
+.user{
+  display: flex;
+  width: 2.5rem;
+  border: 1px solid var(--gray100);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

@@ -18,7 +18,7 @@ const NavBar = () => {
       <ul className="navBar__links">
         {menu.map(({ name, path }, index) => {
           return (
-            <li>
+            <li key={index}>
               <NavLink
                 to={path}
                 className={({ isActive }) => (isActive ? "active" : "")}
