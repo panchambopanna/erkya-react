@@ -74,6 +74,13 @@ body {
   font-size: var(--fs-small);
 }
 
-.App>.container{
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App > .container {
   margin: 0px 10px;
 }

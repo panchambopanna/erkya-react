@@ -1,18 +1,19 @@
 .Footer {
-    width: 100%;
-    border-top: 1px solid black;
-    margin: 2rem 0;
-    text-align: center;
-  }
-  
-  .Footer-copyright {
-    padding-top: 1rem;
-  }
-  
-  .FSocial-icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 10rem;
-    margin: 1rem auto;
-  }
+  background-color: hsl(0, 0%, 50%, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  margin-top: auto;
+}
+
+.Footer-copyright {
+  color: var(--gray500);
+}
+
+.FSocial-icons {
+  font-size: var(--fs-medium);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

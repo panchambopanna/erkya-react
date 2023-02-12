@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="Footer">
       <div className="Footer-copyright">
-        <small>&#169; All rights reserved 2022</small>
+        <small>© 2023 Eryka Space. All rights reserved.</small>
       </div>
       {/* Social media links */}
       <div className="FSocial-icons">
