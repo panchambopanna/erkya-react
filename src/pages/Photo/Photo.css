@@ -68,7 +68,7 @@
   position: absolute;
 }
 
-.sortmenu > .dropdown-trigger:focus + .dropdown-menu.active {
+.dropdown-menu.active {
   opacity: 1;
   visibility: visible;
 }
