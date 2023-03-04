@@ -13,7 +13,7 @@ import {
 } from "../../pages";
 import { Routes, Route } from "react-router-dom";
 import { Header, NavBar, Footer } from "../../components";
-import PrivateRoute from "./PrivateRoute";
+//import PrivateRoute from "./PrivateRoute";
 
 const ContainerRoute = () => {
   return (
