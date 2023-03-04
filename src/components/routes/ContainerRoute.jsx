@@ -31,9 +31,10 @@ const ContainerRoute = () => {
           <Route exact path="/rent" element={<Rent />} />
           <Route exact path="/studio" element={<Studio />} />
           <Route exact path="/video" element={<Video />} />
-          <Route element={<PrivateRoute />}>
+          <Route exact path="/profile" element={<Profile />} />
+          {/* <Route element={<PrivateRoute />}>
             <Route exact path="/profile" element={<Profile />} />
-          </Route>
+          </Route> */}
         </Routes>
       </div>
 
