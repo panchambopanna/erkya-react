@@ -13,6 +13,7 @@ import {
 } from "../../pages";
 import { Routes, Route } from "react-router-dom";
 import { Header, NavBar, Footer } from "../../components";
+import ResetConfirm from "../auth/ResetConfirm";
 //import PrivateRoute from "./PrivateRoute";
 
 const ContainerRoute = () => {
@@ -32,6 +33,7 @@ const ContainerRoute = () => {
           <Route exact path="/studio" element={<Studio />} />
           <Route exact path="/video" element={<Video />} />
           <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/confirm" element={<ResetConfirm />} />
           {/* <Route element={<PrivateRoute />}>
             <Route exact path="/profile" element={<Profile />} />
           </Route> */}

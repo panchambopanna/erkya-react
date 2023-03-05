@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "../index";
 import "./Modal.css";
 import { FiX } from "react-icons/fi";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Reset = ({ setModal, setmType }) => {
-  console.log("rendering");
+  const [email, setEmail] = useState();
+
+  const navigate = useNavigate();
+
+  const triggerResetEmail = async (e) => {
+    try {
+      await sendPasswordResetEmail(auth, email)
+        .then(setModal(false))
+        .then(navigate("/confirm"));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="modal">
       <div className="modal__content modal__fpass">
@@ -20,16 +36,20 @@ const Reset = ({ setModal, setmType }) => {
               className="email-input"
               type="email"
               id="logemail"
-              placeholder=""
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label className="email-label" htmlFor="logemail">
               Email
             </label>
           </div>
           <div className="ctabtn">
-            <Button type="submit" text="Reset Password" color="blue" />
-            {/* Add logic to send links or some reset logic */}
+            <Button
+              fn={(e) => triggerResetEmail(e)}
+              text="Reset Password"
+              color="blue"
+            />
           </div>
         </form>
         <div className="loginlink">

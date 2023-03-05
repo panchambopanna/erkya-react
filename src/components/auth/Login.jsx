@@ -7,21 +7,47 @@ import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 import { connect } from "react-redux";
 import { logIn } from "../../store/action/auth";
 import { createPortal } from "react-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Login = ({ logIn, setmType, setModal, isAuthenticated }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
   const [toggle, setToggle] = useState(false);
-  const { email, password } = formData;
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const onLogin = (e) => {
-    e.preventDefault();
-    logIn(email, password);
-  };
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values, { setFieldError }) => {
+      try {
+        await logIn(values.email, values.password);
+        setModal(false);
+      } catch (e) {
+        if (e.message.includes("user-not-found")) {
+          setFieldError(
+            "email",
+            "This email id does not exist, please sign up."
+          );
+        } else if (e.message.includes("invalid")) {
+          setFieldError(
+            "password",
+            "Password is incorrect! Try again or reset password"
+          );
+        }
+      }
+    },
+    validationSchema,
+  });
+
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+    formik;
 
   if (isAuthenticated) setModal(false);
 
@@ -33,36 +59,49 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated }) => {
           {" "}
           <FiX />
         </span>
-        <form onSubmit={(e) => onLogin(e)}>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="input-container">
             <input
-              className="email-input"
+              className={`email-input ${errors.email ? "invalid" : ""}`}
               type="email"
               id="logemail"
               name="email"
               placeholder=""
-              value={email}
-              onChange={(e) => handleChange(e)}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
             <label className="email-label" htmlFor="logemail">
               Email
             </label>
+            {errors.email && touched.email ? (
+              <div className="invalid">{errors.email}</div>
+            ) : null}
           </div>
           <div className="input-container">
             <input
-              className="pass-input"
+              className={`pass-input ${errors.password ? "invalid" : ""}`}
               type={toggle ? "text" : "password"}
               id="logpassword"
               placeholder=""
               name="password"
-              value={password}
-              onChange={(e) => handleChange(e)}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              onKeyDown={(e) => {
+                if (e.keyCode === 13) {
+                  handleSubmit();
+                }
+              }}
               required
             />
             <label className="pass-label" htmlFor="logpassword">
               Password
             </label>
+            {errors.password && touched.password ? (
+              <div className="invalid">{errors.password}</div>
+            ) : null}
             <span
               className="fieye"
               onClick={() => {

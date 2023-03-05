@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
     "firebase": "^9.15.0",
+    "formik": "^2.2.9",
     "prop-types": "15.8.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.7.0",
@@ -20,7 +21,8 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

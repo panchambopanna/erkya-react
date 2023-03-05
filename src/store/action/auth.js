@@ -17,7 +17,8 @@ export const signUp = (email, password) => async (dispatch) => {
       payload: res.user,
     });
   } catch (error) {
-    console.log(error);
+    console.log('caught')
+    throw new Error(error)
   }
 };
 
@@ -31,7 +32,7 @@ export const logIn = (email, password) => async (dispatch) => {
       payload: res.user,
     });
   } catch (error) {
-    console.log(error);
+    throw new Error(error)
   }
 };
 

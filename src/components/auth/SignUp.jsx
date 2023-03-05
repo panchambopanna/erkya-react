@@ -7,22 +7,39 @@ import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 import { connect } from "react-redux";
 import { signUp } from "../../store/action/auth";
 import { createPortal } from "react-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    fullName: "",
-  });
   const [toggle, setToggle] = useState(false);
-  const { email, password, fullName } = formData;
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const onSignUp = (e) => {
-    e.preventDefault();
-    signUp(email, password);
-  };
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"),
+    //fullName: Yup.string().required("Name is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      fullName: "",
+    },
+    onSubmit: async (values, { setFieldError }) => {
+      try {
+        await signUp(values.email, values.password);
+      } catch (e) {
+        console.error(e);
+        setFieldError("email", "Email already in use, please log in.");
+      }
+    },
+    validationSchema,
+  });
+
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+    formik;
 
   if (isAuthenticated) setModal(false);
 
@@ -34,7 +51,7 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
           {" "}
           <FiX />
         </span>
-        <form onSubmit={(e) => onSignUp(e)}>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="s_input-container">
             <input
               className="fname-input"
@@ -42,28 +59,36 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
               id="fullname"
               placeholder=""
               name="fullName"
-              value={fullName}
-              onChange={(e) => handleChange(e)}
+              value={values.fullName}
+              onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
             <label className="fname-label" htmlFor="fullname">
               Full Name
             </label>
+            {errors.fullName && touched.fullName ? (
+              <div className="invalid">{errors.fullName}</div>
+            ) : null}
           </div>
           <div className="s_input-container">
             <input
-              className="signemail-input"
+              className={`signemail-input ${errors.email ? "invalid" : ""}`}
               type="email"
               id="signemail"
               placeholder=""
               name="email"
-              value={email}
-              onChange={(e) => handleChange(e)}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
             <label className="signemail-label" htmlFor="signemail">
               Email
             </label>
+            {errors.email && touched.email ? (
+              <div className="invalid">{errors.email}</div>
+            ) : null}
           </div>
           <div className="s_input-container">
             <input
@@ -72,13 +97,17 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
               id="signpassword"
               placeholder=""
               name="password"
-              value={password}
-              onChange={(e) => handleChange(e)}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
             <label className="signpass-label" htmlFor="signpassword">
               Password
             </label>
+            {errors.password && touched.password ? (
+              <div className="invalid">{errors.password}</div>
+            ) : null}
             <span
               className="fieye"
               onClick={() => {

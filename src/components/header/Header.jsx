@@ -58,6 +58,9 @@ const Header = ({ logOut, isAuthenticated }) => {
       {modal && mType == "signup" && (
         <SignUp setModal={setModal} setmType={setmType} />
       )}
+      {modal && mType == "fpass" && (
+        <Reset setModal={setModal} setmType={setmType} />
+      )}
     </>
   );
 };
