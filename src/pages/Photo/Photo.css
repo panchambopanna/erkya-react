@@ -14,6 +14,7 @@
 }
 
 .filters {
+  font: inherit;
   display: flex;
   align-items: center;
   position: relative;
@@ -45,13 +46,13 @@
   border: none;
   padding: 6px 8px;
   cursor: pointer;
+  font: inherit;
   font-size: var(--fs-xsmall);
   background: transparent;
 }
 
 .dropdown-trigger-label {
   color: var(--gray500);
-  font-size: var(--fs-xsmall);
   font-weight: var(--fw-medium);
   position: absolute;
   top: -10px;
