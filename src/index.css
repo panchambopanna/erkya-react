@@ -39,7 +39,6 @@
 * {
   margin: 0;
   padding: 0;
-  /* font: inherit; */
 }
 
 html:focus-within {
@@ -85,7 +84,7 @@ body {
   margin: 0px 10px;
 }
 
-.invalid{
+.invalid {
   font-size: 12px;
-  color: var(--error)
+  color: var(--error);
 }

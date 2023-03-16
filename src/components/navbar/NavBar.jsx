@@ -10,8 +10,8 @@ const NavBar = () => {
     { name: "Photographers/Retouchers", path: "/photo" },
     { name: "Videographers/Editors", path: "/video" },
     { name: "Studios", path: "/studio" },
-    { name: "Rent/Sales", path: "/rent" },
     { name: "Props/Jewellary", path: "/jewels" },
+    { name: "Rent/Sales", path: "/rent" },
   ];
   return (
     <nav>
