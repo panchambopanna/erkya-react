@@ -1,0 +1,138 @@
+/* Container for all profile page */
+.profile_container {
+  position: relative;
+}
+
+.profile_cover {
+  margin-top: -60px;
+}
+
+.profile_cover_prompt {
+  height: 220px;
+  background-color: var(--gray300);
+  display: flex;
+  justify-content: center;
+}
+
+.prompt_heading {
+  font: inherit;
+  font-size: 2rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* container for profile info and profile work */
+.profile_wrap {
+  display: flex;
+  align-items: flex-start;
+  margin: -160px auto;
+  padding: 25px 50px 50px;
+  position: relative;
+}
+
+/* Side bar for information */
+.profile_info_container {
+  position: relative;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-image: linear-gradient(transparent, var(--white));
+  box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar_container {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.profile-image {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.profile_username {
+  font-size: var(--fs-big);
+}
+
+.profile_user_profession {
+  font-size: var(--fs-medium);
+  margin-top: 10px;
+}
+
+.photography_niches {
+  font-size: var(--fs-xsmall);
+}
+
+.profile_user_contacts {
+  margin-top: 1rem;
+  font-size: var(--fs-xsmall);
+}
+
+.socialmedia_container {
+  margin: 1rem 0;
+}
+
+.social_items {
+  border: 1px solid var(--gray100);
+  padding: 0.4rem;
+  border-radius: var(--radius);
+  margin: 0.6rem 0;
+}
+
+.icons {
+  padding-right: 1rem;
+}
+
+/* profile edit button */
+.profile_edit_container {
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: var(--primary);
+  margin-top: 10px;
+}
+
+.profile_edit_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+  border-radius: 50px;
+}
+
+.profile_edit_icon {
+  color: var(--black);
+  padding-right: 4px;
+}
+
+.profile_edit_label {
+  color: var(--black);
+}
+
+/* container for profile work */
+.profile_content {
+  margin: 135px 0 50px 30px;
+  width: 1490px;
+}
+
+/* Navigation for profile tabs */
+.profile_nav {
+  margin: 20px 0;
+  text-align: left;
+  font-weight: var(--fw-medium);
+}
+
+.profile_tabs {
+  display: inline-block;
+  margin: 0 1rem;
+  position: relative;
+}
+
+.profile_tabs a {
+  padding: 0 5px;
+}
+
+.profile_tabs a:hover,
+.profile_tabs a.active {
+  color: var(--primary);
+}
