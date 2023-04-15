@@ -80,9 +80,9 @@ body {
   flex-direction: column;
 }
 
-.App > .container {
+/* .App > .container {
   margin: 0px 10px;
-}
+} */
 
 .invalid {
   font-size: 12px;

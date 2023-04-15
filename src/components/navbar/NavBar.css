@@ -5,7 +5,6 @@ nav {
 }
 
 .navBar__links {
-  color: var(--gray700);
   font-weight: var(--fw-medium);
   display: flex;
   justify-content: space-evenly;
