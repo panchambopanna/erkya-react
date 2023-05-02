@@ -67,6 +67,7 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin: 10px 0 0 -1.8rem;
   position: absolute;
+  z-index: 9;
 }
 
 .dropdown-menu.active {
@@ -94,49 +95,70 @@
   color: var(--primary);
 }
 
-/* {rofile cards starts */
+/* profile cards starts */
 /* Card Container grid */
-.container-grid {
-  margin: 2rem;
+.card_wrapper-grid {
   display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 4rem;
 }
 
-/* Profile card */
-.profile-card {
+.card_container {
   position: relative;
-  text-align: center;
-  width: 100%;
-  max-width: 250px;
   border-radius: var(--radius);
-  padding: 0.8rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-.card-save {
+.card_container:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card_wrapper {
+  border-radius: var(--radius);
+}
+
+.card_avatar {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card_save {
   position: absolute;
-  top: 10px;
+  top: 5px;
   right: 10px;
   font-size: var(--fs-medium);
+  color: var(--primary);
+  opacity: 0;
+  z-index: 1;
+  transform: translateY(-30px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.card_container:hover .card_save {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.card-image {
-  margin-bottom: 10px;
-  border: 2px solid black;
-  border-radius: 50%;
+.card_body {
+  margin-top: 0.5rem;
 }
 
-.card-name {
+.card_name {
   font-size: var(--fs-big);
   font-weight: var(--fw-medium);
 }
 
-.card-profession {
-  margin-bottom: 0.5rem;
+.card_niche {
   font-size: var(--fs-xsmall);
 }
 
-.location {
+.card_location {
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,29 +166,6 @@
   color: var(--gray500);
 }
 
-.card-city {
+.card_city {
   margin-left: 0.4rem;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  color: var(--gray700);
-}
-
-.social-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.social-link:hover,
-.social-link:focus {
-  scale: 1.5;
 }

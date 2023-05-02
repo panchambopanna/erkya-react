@@ -1,13 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MdArrowDropDown, MdLocationOn } from "react-icons/md";
-import {
-  FiFacebook,
-  FiInstagram,
-  FiYoutube,
-  FiTwitter,
-  FiMapPin,
-  FiBookmark,
-} from "react-icons/fi";
+import { FiMapPin, FiBookmark } from "react-icons/fi";
 import "./Photo.css";
 import { Link } from "react-router-dom";
 
@@ -155,74 +148,191 @@ const Photo = () => {
           </div>
         </div>
       </section>
-      <section className="container-grid">
-        <div className="profile-card">
-          <div className="card-info">
-            <span className="card-save">
-              {" "}
-              <FiBookmark />{" "}
-            </span>
-            <img
-              className="card-image"
-              src="https://i.pravatar.cc/100"
-              alt=""
-            />
-            <h2 className="card-name">
-              <Link to="/profile">Karthik Arya</Link>
-            </h2>
-            <p className="card-profession">Photographer/Retoucher</p>
-            <span className="location">
-              <FiMapPin />
-              <p className="card-city"> Bengaluru </p>
-            </span>
-          </div>
-          <div className="social-icons">
-            <span className="social-link">
-              {" "}
-              <a
-                aria-label="facebook"
-                target="__blank"
-                href="https://facebook.com"
-                rel="noopener noreferrer"
-              >
-                {" "}
-                <FiFacebook />{" "}
-              </a>{" "}
-            </span>
-            <span className="social-link">
-              {" "}
-              <a
-                aria-label="instagram"
-                href="https://instagram.com"
-                rel="noopener noreferrer"
-              >
-                {" "}
-                <FiInstagram />{" "}
-              </a>{" "}
-            </span>
-            <span className="social-link">
-              {" "}
-              <a
-                aria-label="youtube"
-                href="https://youtube.com"
-                rel="noopener noreferrer"
-              >
-                {" "}
-                <FiYoutube />
-              </a>{" "}
-            </span>
-            <span className="social-link">
-              {" "}
-              <a
-                aria-label="twitter"
-                href="https://twitter.com"
-                rel="noopener noreferrer"
-              >
-                {" "}
-                <FiTwitter />
-              </a>{" "}
-            </span>
-          </div>
+      <section>
+        <div className="card_wrapper-grid">
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="card_container">
+            <div className="card_wrapper">
+              <img
+                className="card_avatar"
+                src="https://i.pravatar.cc/100"
+                alt=""
+              />
+              <span className="card_save">
+                <FiBookmark />
+              </span>
+            </div>
+
+            <figcaption className="card_body">
+              <h1 className="card_name">Karthik</h1>
+              <p className="card_profession">Photographer</p>
+              <p className="card_niche">Portrait, Wedding</p>
+              <span className="card_location">
+                <FiMapPin />
+                <p className="card_city">Bengaluru</p>
+              </span>
+            </figcaption>
+          </figure>
         </div>
       </section>
     </main>
