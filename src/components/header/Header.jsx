@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/space.png";
 import { FiSearch, FiUser } from "react-icons/fi";
-import { Button, Modal } from "../index";
+import { Button } from "../index";
 import "./Header.css";
 import { logOut } from "../../store/action/auth";
 import { connect } from "react-redux";
@@ -52,13 +52,13 @@ const Header = ({ logOut, isAuthenticated }) => {
         </div>
       </header>
 
-      {modal && mType == "login" && (
+      {modal && mType === "login" && (
         <Login setModal={setModal} setmType={setmType} />
       )}
-      {modal && mType == "signup" && (
+      {modal && mType === "signup" && (
         <SignUp setModal={setModal} setmType={setmType} />
       )}
-      {modal && mType == "fpass" && (
+      {modal && mType === "fpass" && (
         <Reset setModal={setModal} setmType={setmType} />
       )}
     </>
