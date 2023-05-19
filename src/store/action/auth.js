@@ -5,12 +5,15 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase";
-import { SET_USER, LOGOUT } from "./types";
+import { SET_USER, LOGOUT, SET_LOADING } from "./types";
 
 // Create a User - Firebase
 
 export const signUp = (email, password) => async (dispatch) => {
   try {
+    dispatch({
+      type:SET_LOADING
+    })
     let res = await createUserWithEmailAndPassword(auth, email, password);
     dispatch({
       type: SET_USER,
@@ -26,6 +29,9 @@ export const signUp = (email, password) => async (dispatch) => {
 
 export const logIn = (email, password) => async (dispatch) => {
   try {
+    dispatch({
+      type:SET_LOADING
+    })
     let res = await signInWithEmailAndPassword(auth, email, password);
     dispatch({
       type: SET_USER,

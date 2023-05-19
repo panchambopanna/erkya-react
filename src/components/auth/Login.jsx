@@ -10,7 +10,7 @@ import { createPortal } from "react-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const Login = ({ logIn, setmType, setModal, isAuthenticated }) => {
+const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
   const [toggle, setToggle] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -26,22 +26,21 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated }) => {
       password: "",
     },
     onSubmit: async (values, { setFieldError }) => {
-      try {
-        await logIn(values.email, values.password);
-        setModal(false);
-      } catch (e) {
-        if (e.message.includes("user-not-found")) {
-          setFieldError(
-            "email",
-            "This email id does not exist, please sign up."
-          );
-        } else if (e.message.includes("invalid")) {
-          setFieldError(
-            "password",
-            "Password is incorrect! Try again or reset password"
-          );
-        }
-      }
+         logIn(values.email, values.password)
+           .then(() => setModal(false))
+           .catch((e) => {
+             if (e.message.includes("user-not-found")) {
+               setFieldError(
+                 "email",
+                 "This email id does not exist, please sign up."
+               );
+             } else if (e.message.includes("invalid") || e.message.includes("wrong-password")) {
+               setFieldError(
+                 "password",
+                 "Password is incorrect! Try again or reset password"
+               );
+             }
+           });
     },
     validationSchema,
   });
@@ -117,7 +116,7 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated }) => {
           </div>
 
           <div className="ctabtn">
-            <Button type="submit" text="LogIn" color="blue" />
+           <Button type='submit' text={loading? 'Loading...' : 'LogIn'} color="blue" />
           </div>
 
           <div className="gcontainer">
@@ -153,6 +152,7 @@ Login.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  loading: state.auth.loading
 });
 
 export default connect(mapStateToProps, { logIn })(Login);

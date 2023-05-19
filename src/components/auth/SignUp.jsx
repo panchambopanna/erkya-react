@@ -10,7 +10,7 @@ import { createPortal } from "react-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
+const SignUp = ({ signUp, setModal, setmType, isAuthenticated, loading }) => {
   const [toggle, setToggle] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -119,7 +119,7 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated }) => {
           </div>
 
           <div className="ctabtn">
-            <Button type="submit" text="SignUp" color="blue" />
+            <Button type="submit" text={loading? 'Creating...' : 'Create Account'} color="blue" />
           </div>
 
           <div className="gcontainer">
@@ -162,6 +162,7 @@ SignUp.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  loading: state.auth.loading
 });
 
 export default connect(mapStateToProps, { signUp })(SignUp);
