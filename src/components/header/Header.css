@@ -35,14 +35,17 @@ input {
 .header__buttons {
   display: flex;
   gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .user {
-  display: flex;
-  width: 2.5rem;
+  width: 3rem;
+}
+
+.user_logout {
   border: 1px solid var(--gray100);
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
 }
