@@ -56,7 +56,6 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated }) => {
       <div className="modal__content modal__login">
         <h1>LogIn</h1>
         <span className="close-btn" onClick={() => setModal(false)}>
-          {" "}
           <FiX />
         </span>
         <form onSubmit={handleSubmit} noValidate>

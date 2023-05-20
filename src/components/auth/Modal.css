@@ -41,7 +41,7 @@
 
 .close-btn:hover {
   background-color: var(--gray100);
-  border-radius: 50%;
+  border-radius: var(--radius);
 }
 
 .modal__content > form {
