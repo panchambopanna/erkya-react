@@ -5,7 +5,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase";
-import { SET_USER, LOGOUT, SET_LOADING } from "./types";
+import { SET_USER, LOGOUT, SET_LOADING, UNSET_LOADING } from "./types";
 
 // Create a User - Firebase
 
@@ -20,7 +20,9 @@ export const signUp = (email, password) => async (dispatch) => {
       payload: res.user,
     });
   } catch (error) {
-    console.log('caught')
+    dispatch({
+      type:UNSET_LOADING
+    })
     throw new Error(error)
   }
 };
@@ -38,6 +40,9 @@ export const logIn = (email, password) => async (dispatch) => {
       payload: res.user,
     });
   } catch (error) {
+    dispatch({
+      type:UNSET_LOADING
+    })
     throw new Error(error)
   }
 };
@@ -59,7 +64,10 @@ export const loadUser = () => async (dispatch) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type:UNSET_LOADING
+    })
+    throw new Error(error)
   }
 };
 
@@ -72,6 +80,9 @@ export const logOut = () => async (dispatch) => {
       type: LOGOUT,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type:UNSET_LOADING
+    })
+    throw new Error(error)
   }
 };

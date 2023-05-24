@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { MdArrowDropDown, MdLocationOn } from "react-icons/md";
 import { FiMapPin, FiBookmark } from "react-icons/fi";
 import "./Photo.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Photo = () => {
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let handler = (e) => {
@@ -150,7 +151,7 @@ const Photo = () => {
       </section>
       <section>
         <div className="card_wrapper-grid">
-          <figure className="card_container">
+          <figure className="card_container" onClick={()=>navigate(`/profile/${1}`)}>
             <div className="card_wrapper">
               <img
                 className="card_avatar"

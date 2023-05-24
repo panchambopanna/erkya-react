@@ -32,7 +32,7 @@ const ContainerRoute = () => {
           <Route exact path="/rent" element={<Rent />} />
           <Route exact path="/studio" element={<Studio />} />
           <Route exact path="/video" element={<Video />} />
-          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/profile/:id" element={<Profile />} />
           <Route exact path="/confirm" element={<ResetConfirm />} />
           {/* <Route element={<PrivateRoute />}>
             <Route exact path="/profile" element={<Profile />} />
