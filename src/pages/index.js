@@ -8,3 +8,4 @@ export { default as Rent } from "./Rent/Rent";
 export { default as Studio } from "./Studio/Studio";
 export { default as Video } from "./Video/Video";
 export { default as Profile } from "./Profile/Profile";
+export {default as PageNotFound} from "./PageNotFound"

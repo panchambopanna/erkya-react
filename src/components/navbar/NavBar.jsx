@@ -15,10 +15,10 @@ const NavBar = () => {
   ];
   return (
     <nav>
-      <ul className="navBar__links">
+      <div className="navBar__links">
         {menu.map(({ name, path }, index) => {
           return (
-            <li key={index}>
+            <div key={index}>
               <NavLink
                 to={path}
                 className={({ isActive }) => (isActive ? "active" : "")}
@@ -26,10 +26,10 @@ const NavBar = () => {
                 {" "}
                 {name}{" "}
               </NavLink>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </nav>
   );
 };

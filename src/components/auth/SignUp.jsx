@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Button } from "../index";
+// import { Button } from "../index";
 import "./Modal.css";
 import google from "../../images/google.png";
 import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 import { connect } from "react-redux";
 import { signUp } from "../../store/action/auth";
-import { createPortal } from "react-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Modal, Button } from "react-bootstrap";
 
 const SignUp = ({ signUp, setModal, setmType, isAuthenticated, loading }) => {
   const [toggle, setToggle] = useState(false);
@@ -21,7 +21,7 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated, loading }) => {
     //fullName: Yup.string().required("Name is required"),
   });
 
-  const formik = useFormik({
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
     initialValues: {
       email: "",
       password: "",
@@ -38,16 +38,17 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated, loading }) => {
     validationSchema,
   });
 
-  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
-    formik;
+  const handleClose = () => {
+    setModal(false)
+  }
 
-  if (isAuthenticated) setModal(false);
+  if (isAuthenticated) handleClose()
 
-  return createPortal(
-    <div className="modal">
-      <div className="modal__content modal__signUp">
+  return(
+    <Modal show={true} onHide={handleClose}>
+      <Modal.Body>
         <h1>Sign Up</h1>
-        <span className="close-btn" onClick={() => setModal(false)}>
+        <span className="close-btn" onClick={handleClose}>
           {" "}
           <FiX />
         </span>
@@ -119,13 +120,13 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated, loading }) => {
           </div>
 
           <div className="ctabtn">
-            <Button type="submit" text={loading? 'Creating...' : 'Create Account'} color="blue" />
+            <Button variant="info">{loading? 'Creating...' : 'Create account'}</Button>
           </div>
 
           <div className="gcontainer">
             <div className="gbox">
               <img src={google} alt="Google" />
-              <span>SignUp with Google</span>
+              <span>Sign up with Google</span>
             </div>
           </div>
         </form>
@@ -147,9 +148,8 @@ const SignUp = ({ signUp, setModal, setmType, isAuthenticated, loading }) => {
             Log In{" "}
           </span>
         </div>
-      </div>
-    </div>,
-    document.getElementById("modal")
+      </Modal.Body>
+    </Modal>
   );
 };
 

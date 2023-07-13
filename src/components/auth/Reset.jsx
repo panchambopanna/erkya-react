@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Button } from "../index";
 import "./Modal.css";
 import { FiX } from "react-icons/fi";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 
 const Reset = ({ setModal, setmType }) => {
   const [email, setEmail] = useState();
@@ -23,8 +22,8 @@ const Reset = ({ setModal, setmType }) => {
   };
 
   return (
-    <div className="modal">
-      <div className="modal__content modal__fpass">
+    <Modal show={true} onHide={()=>setModal(false)}>
+      <Modal.Body>
         <h1>Password Recovery</h1>
         <span className="close-btn" onClick={() => setModal(false)}>
           {" "}
@@ -46,10 +45,9 @@ const Reset = ({ setModal, setmType }) => {
           </div>
           <div className="ctabtn">
             <Button
-              fn={(e) => triggerResetEmail(e)}
-              text="Reset Password"
-              color="blue"
-            />
+              onClick={(e) => triggerResetEmail(e)}
+              variant="info"
+            >Reset Password</Button>
           </div>
         </form>
         <div className="loginlink">
@@ -63,8 +61,8 @@ const Reset = ({ setModal, setmType }) => {
             Log In{" "}
           </span>
         </div>
-      </div>
-    </div>
+      </Modal.Body>
+    </Modal>
   );
 };
 

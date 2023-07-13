@@ -72,13 +72,12 @@ const Profile = () => {
             </div>
           </div>
           <div className="profile_edit_container">
-            <a className="profile_edit_button" href="/">
+            <div className="profile_edit_button">
               <span className="profile_edit_icon">
                 <FiEdit2 />
               </span>
-
               <span className="profile_edit_label">Edit Profile</span>
-            </a>
+            </div>
           </div>
         </aside>
         <section className="profile_content">

@@ -13,6 +13,8 @@ nav {
 
 .navBar__links a {
   display: inline-block;
+  text-decoration: none;
+  color: var(--primary-dark);
 }
 
 .navBar__links a:hover,

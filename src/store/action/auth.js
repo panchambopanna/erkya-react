@@ -51,6 +51,9 @@ export const logIn = (email, password) => async (dispatch) => {
 
 export const loadUser = () => async (dispatch) => {
   try {
+    dispatch({
+      type:SET_LOADING
+    })
     onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch({
@@ -75,6 +78,9 @@ export const loadUser = () => async (dispatch) => {
 
 export const logOut = () => async (dispatch) => {
   try {
+    dispatch({
+      type:SET_LOADING
+    })
     signOut(auth);
     dispatch({
       type: LOGOUT,

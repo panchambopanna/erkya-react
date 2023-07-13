@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Button } from "../index";
+// import { Button } from "../index";
 import "./Modal.css";
 import google from "../../images/google.png";
 import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 import { connect } from "react-redux";
 import { logIn } from "../../store/action/auth";
-import { createPortal } from "react-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
   const [toggle, setToggle] = useState(false);
@@ -20,14 +21,14 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
     password: Yup.string().required("Password is required"),
   });
 
-  const formik = useFormik({
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: async (values, { setFieldError }) => {
          logIn(values.email, values.password)
-           .then(() => setModal(false))
+           .then(handleClose)
            .catch((e) => {
              if (e.message.includes("user-not-found")) {
                setFieldError(
@@ -45,16 +46,17 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
     validationSchema,
   });
 
-  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
-    formik;
+  const handleClose = () => {
+    setModal(false)
+  }
 
-  if (isAuthenticated) setModal(false);
+  if (isAuthenticated) handleClose();
 
-  return createPortal(
-    <div className="modal">
-      <div className="modal__content modal__login">
-        <h1>LogIn</h1>
-        <span className="close-btn" onClick={() => setModal(false)}>
+  return (
+    <Modal show={true} onHide={handleClose}>
+      <Modal.Body>
+        <h1>Log in</h1>
+        <span className="close-btn" onClick={handleClose}>
           <FiX />
         </span>
         <form onSubmit={handleSubmit} noValidate>
@@ -115,13 +117,13 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
           </div>
 
           <div className="ctabtn">
-           <Button type='submit' text={loading? 'Loading...' : 'LogIn'} color="blue" />
+           <Button type='submit' variant='info'>{loading? 'Loading...' : 'Log in'}</Button>
           </div>
 
           <div className="gcontainer">
             <div className="gbox">
               <img src={google} alt="Google" />
-              <span>LogIn with Google</span>
+              <span>Log in with Google</span>
             </div>
           </div>
         </form>
@@ -136,9 +138,8 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
             Sign Up{" "}
           </span>
         </div>
-      </div>
-    </div>,
-    document.getElementById("modal")
+      </Modal.Body>
+    </Modal>
   );
 };
 

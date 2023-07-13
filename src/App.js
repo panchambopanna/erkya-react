@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { loadUser } from "./store/action/auth";
 import ContainerRoute from "./components/routes/ContainerRoute";
 import { Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   useEffect(() => {

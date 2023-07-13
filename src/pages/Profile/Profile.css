@@ -4,7 +4,7 @@
 }
 
 .profile_cover {
-  margin-top: -60px;
+  /* margin-top: -60px; */
 }
 
 .profile_cover_prompt {
@@ -26,7 +26,7 @@
 .profile_wrap {
   display: flex;
   align-items: flex-start;
-  margin: -160px auto;
+  /* margin: -160px auto; */
   padding: 25px 50px 50px;
   position: relative;
 }
@@ -38,6 +38,7 @@
   padding: 1.5rem;
   background-image: linear-gradient(transparent, var(--white));
   box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1);
+  top: -160px;
 }
 
 .avatar_container {
@@ -111,13 +112,12 @@
 
 /* container for profile work */
 .profile_content {
-  margin: 135px 0 50px 30px;
+  margin-left:30px;
   width: 1490px;
 }
 
 /* Navigation for profile tabs */
 .profile_nav {
-  margin: 20px 0;
   text-align: left;
   font-weight: var(--fw-medium);
 }

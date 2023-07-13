@@ -9,10 +9,16 @@ import { connect } from "react-redux";
 import Login from "../auth/Login";
 import SignUp from "../auth/SignUp";
 import Reset from "../auth/Reset";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ logOut, isAuthenticated }) => {
   const [modal, setModal] = useState(false);
   const [mType, setmType] = useState("");
+
+  console.log(modal)
+
+  const navigate = useNavigate();
+
   const handleClick = (mType) => {
     setModal(true);
     setmType(mType);
@@ -20,20 +26,22 @@ const Header = ({ logOut, isAuthenticated }) => {
 
   const unAuthorisedLinks = (
     <div className="header__buttons">
-      <Button text="Log In" fn={() => handleClick("login")} />
-      <Button text="Sign Up" color="blue" fn={() => handleClick("signup")} />
+      <Button text="Log in" fn={() => handleClick("login")} />
+      <Button text="Create account" color="blue" fn={() => handleClick("signup")} />
     </div>
   );
 
   const authorisedLinks = (
     <div className="header__buttons">
-      <Button text="Log Out" fn={() => logOut()} />
+      {/* <Button text="Log Out" fn={() => logOut()} /> */}
       <div className="user">
-        <Link to="/profile">
+        <Link to="/profile/1"> {/** Chnage number to id when user db is setup */}
           <img className="card_avatar" src="https://i.pravatar.cc/100" alt="" />
         </Link>
       </div>
-      <div className="user_logout">
+      <div className="user_logout" onClick={()=>
+        logOut().then(()=>navigate('/'))
+        }>
         <FiLogOut />
       </div>
     </div>
