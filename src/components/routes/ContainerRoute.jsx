@@ -9,7 +9,7 @@ import {
   Rent,
   Studio,
   Video,
-  Profile,PageNotFound
+  Profile,PageNotFound, EditProfile
 } from "../../pages";
 import { Routes, Route } from "react-router-dom";
 import { Header, NavBar, Footer } from "../../components";
@@ -33,10 +33,10 @@ const ContainerRoute = () => {
           <Route exact path="/studio" element={<Studio />} />
           <Route exact path="/video" element={<Video />} />
           <Route exact path="/confirm" element={<ResetConfirm />} />
-          <Route exact path="/profile/:id" element={<Profile />} />
-          {/* <Route element={<PrivateRoute />}>
-             Include a protected route here
-          </Route> */}
+          <Route exact path="/:username" element={<Profile />} />
+          <Route element={<PrivateRoute />}>
+             <Route exact path ='/:username/edit' element={<EditProfile/>} />
+          </Route>
           <Route path="*" element = {<PageNotFound/>} />
         </Routes>
       </div>

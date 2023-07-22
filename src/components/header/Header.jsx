@@ -35,7 +35,7 @@ const Header = ({ logOut, isAuthenticated }) => {
     <div className="header__buttons">
       {/* <Button text="Log Out" fn={() => logOut()} /> */}
       <div className="user">
-        <Link to="/profile/1"> {/** Chnage number to id when user db is setup */}
+        <Link to="/karthikarya"> {/** Change name to usename when user db is setup */}
           <img className="card_avatar" src="https://i.pravatar.cc/100" alt="" />
         </Link>
       </div>

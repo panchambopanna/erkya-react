@@ -3,10 +3,6 @@
   position: relative;
 }
 
-.profile_cover {
-  /* margin-top: -60px; */
-}
-
 .profile_cover_prompt {
   height: 220px;
   background-color: var(--gray300);
@@ -61,6 +57,11 @@
   margin-top: 10px;
 }
 
+.profile_user_profession>div{
+  color: var(--gray500);
+  font-style: italic;
+}
+
 .photography_niches {
   font-size: var(--fs-xsmall);
 }
@@ -68,6 +69,11 @@
 .profile_user_contacts {
   margin-top: 1rem;
   font-size: var(--fs-xsmall);
+}
+
+.profile_user_contacts a {
+  text-decoration: none;
+  color: var(--gray300);
 }
 
 .socialmedia_container {
@@ -79,6 +85,11 @@
   padding: 0.4rem;
   border-radius: var(--radius);
   margin: 0.6rem 0;
+}
+
+.social_items>a{
+  text-decoration: none;
+  color: var(--black)
 }
 
 .icons {
