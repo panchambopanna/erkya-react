@@ -110,10 +110,12 @@
   border-radius: var(--radius);
   border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  transition: 300ms;
 }
 
 .card_container:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card_wrapper {

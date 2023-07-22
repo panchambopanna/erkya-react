@@ -151,7 +151,8 @@ const Photo = () => {
       </section>
       <section>
         <div className="card_wrapper-grid">
-          <figure className="card_container" onClick={()=>navigate(`/profile/${1}`)}>
+         {[1,2,3].map((e)=> 
+         (<figure key={e} className="card_container" onClick={()=>navigate(`/profile/${1}`)}>
             <div className="card_wrapper">
               <img
                 className="card_avatar"
@@ -165,60 +166,16 @@ const Photo = () => {
 
             <figcaption className="card_body">
               <h1 className="card_name">Karthik</h1>
-              <p className="card_profession">Photographer</p>
-              <p className="card_niche">Portrait, Wedding</p>
+              <div className="card_profession">Photographer</div>
+              <div className="card_niche">Portrait, Wedding</div>
               <span className="card_location">
                 <FiMapPin />
                 <p className="card_city">Bengaluru</p>
               </span>
             </figcaption>
-          </figure>
-
-          <figure className="card_container">
-            <div className="card_wrapper">
-              <img
-                className="card_avatar"
-                src="https://i.pravatar.cc/100"
-                alt=""
-              />
-              <span className="card_save">
-                <FiBookmark />
-              </span>
-            </div>
-
-            <figcaption className="card_body">
-              <h1 className="card_name">Karthik</h1>
-              <p className="card_profession">Photographer</p>
-              <p className="card_niche">Portrait, Wedding</p>
-              <span className="card_location">
-                <FiMapPin />
-                <p className="card_city">Bengaluru</p>
-              </span>
-            </figcaption>
-          </figure>
-
-          <figure className="card_container">
-            <div className="card_wrapper">
-              <img
-                className="card_avatar"
-                src="https://i.pravatar.cc/100"
-                alt=""
-              />
-              <span className="card_save">
-                <FiBookmark />
-              </span>
-            </div>
-
-            <figcaption className="card_body">
-              <h1 className="card_name">Karthik</h1>
-              <p className="card_profession">Photographer</p>
-              <p className="card_niche">Portrait, Wedding</p>
-              <span className="card_location">
-                <FiMapPin />
-                <p className="card_city">Bengaluru</p>
-              </span>
-            </figcaption>
-          </figure>
+          </figure>)
+          )
+          }
         </div>
       </section>
     </main>

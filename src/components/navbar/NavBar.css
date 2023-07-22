@@ -36,3 +36,101 @@ nav {
   width: 100%;
   background-color: var(--primary);
 }
+
+
+/* Filter and Sort bar */
+.filterandsort-bar {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid hsla(0, 0%, 39%, 0.2);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.filters {
+  font: inherit;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid var(--gray100);
+  padding: 4px;
+  background: transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.filters:hover {
+  border-color: var(--gray700);
+}
+
+.filter-name {
+  padding: 0 4px;
+}
+
+/* Sort button for filtering */
+.sortmenu {
+  position: relative;
+}
+
+/* sorting label */
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--fs-xsmall);
+  background: transparent;
+}
+
+.dropdown-trigger-label {
+  color: var(--gray500);
+  font-weight: var(--fw-medium);
+  position: absolute;
+  top: -10px;
+  left: 6px;
+  scale: 0.8;
+}
+
+/* Content for dropdown */
+.dropdown-menu {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin: 10px 0 0 -1.8rem;
+  position: absolute;
+  z-index: 9;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sortmenu-items {
+  padding: 0.6rem 1rem;
+  margin: 4px;
+}
+
+.sortmenu-item {
+  color: var(--gray700);
+  cursor: pointer;
+  line-height: 2.2;
+}
+
+.sortmenu-item:hover {
+  color: var(--primary);
+}
