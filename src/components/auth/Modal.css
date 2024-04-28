@@ -64,7 +64,7 @@
   color: var(--gray500);
   background-color: var(--white);
   left: 0.6rem;
-  top: 0.6rem;
+  top: 0.3rem;
   padding: 0 0.2rem;
   cursor: text;
   z-index: 1;
@@ -89,7 +89,7 @@
   color: var(--gray500);
   background-color: var(--white);
   left: 0.6rem;
-  top: 0.6rem;
+  top: 0.3rem;
   padding: 0 0.2rem;
   cursor: text;
   transition: all 0.3s;
@@ -208,7 +208,7 @@
   color: var(--gray500);
   background-color: var(--white);
   left: 0.6rem;
-  top: 0.6rem;
+  top: 0.3rem;
   padding: 0 0.2rem;
   cursor: text;
   z-index: 1;
@@ -233,7 +233,7 @@
   color: var(--gray500);
   background-color: var(--white);
   left: 0.6rem;
-  top: 0.6rem;
+  top: 0.3rem;
   padding: 0 0.2rem;
   cursor: text;
   z-index: 1;
@@ -258,7 +258,7 @@
   color: var(--gray500);
   background-color: var(--white);
   left: 0.6rem;
-  top: 0.6rem;
+  top: 0.3rem;
   padding: 0 0.2rem;
   cursor: text;
   z-index: 1;
