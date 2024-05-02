@@ -21,34 +21,38 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
     password: Yup.string().required("Password is required"),
   });
 
-  const { values, handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    onSubmit: async (values, { setFieldError }) => {
-         logIn(values.email, values.password)
-           .then(handleClose)
-           .catch((e) => {
-             if (e.message.includes("user-not-found")) {
-               setFieldError(
-                 "email",
-                 "This email id does not exist, please sign up."
-               );
-             } else if (e.message.includes("invalid") || e.message.includes("wrong-password")) {
-               setFieldError(
-                 "password",
-                 "Password is incorrect! Try again or reset password"
-               );
-             }
-           });
-    },
-    validationSchema,
-  });
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+      onSubmit: async (values, { setFieldError }) => {
+        logIn(values.email, values.password)
+          .then(handleClose)
+          .catch((e) => {
+            if (e.message.includes("user-not-found")) {
+              setFieldError(
+                "email",
+                "This email id does not exist, please sign up."
+              );
+            } else if (
+              e.message.includes("invalid") ||
+              e.message.includes("wrong-password")
+            ) {
+              setFieldError(
+                "password",
+                "Password is incorrect! Try again or reset password"
+              );
+            }
+          });
+      },
+      validationSchema,
+    });
 
   const handleClose = () => {
-    setModal(false)
-  }
+    setModal(false);
+  };
 
   if (isAuthenticated) handleClose();
 
@@ -117,7 +121,9 @@ const Login = ({ logIn, setmType, setModal, isAuthenticated, loading }) => {
           </div>
 
           <div className="ctabtn">
-           <Button type='submit' variant='info'>{loading? 'Loading...' : 'Log in'}</Button>
+            <Button type="submit" variant="info">
+              {loading ? "Loading..." : "Log in"}
+            </Button>
           </div>
 
           <div className="gcontainer">
@@ -152,7 +158,7 @@ Login.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  loading: state.auth.loading
+  loading: state.auth.loading,
 });
 
 export default connect(mapStateToProps, { logIn })(Login);
